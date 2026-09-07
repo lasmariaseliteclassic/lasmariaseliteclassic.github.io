@@ -331,27 +331,48 @@ z-index: 3;
         padding: 60px 18px;
       }
 
-      ..matchup {
-  grid-template-columns: 1fr 1fr;
-  gap: 6px 18px;
-  padding: 14px 16px;
+      .matchup {
   font-size: 15px;
 }
 
-.matchup span:first-child {
+#resultados-automaticos .matchup.final {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  padding: 16px;
+}
+
+#resultados-automaticos .matchup.final .estado {
   grid-column: 1 / -1;
   text-align: center;
   font-size: 12px;
   opacity: 0.75;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
-.matchup span:nth-child(2) {
-  text-align: right;
+#resultados-automaticos .matchup.final .equipo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  min-width: 0;
 }
 
-.matchup span:nth-child(3) {
-  text-align: left;
+#resultados-automaticos .matchup.final .nombre {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.15;
+  min-height: 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#resultados-automaticos .matchup.final .puntos {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+  margin-top: 8px;
 }
       
     }
@@ -1725,12 +1746,20 @@ async function cargarResultados() {
       const clase2 = puntos2 > puntos1 ? "winner" : "";
 
       contenedor.innerHTML += `
-        <div class="matchup final">
-          <span>${estado} · ${categoria}</span>
-          <span class="${clase1}">${equipo1} · ${marcador1}</span>
-          <span class="${clase2}">${equipo2} · ${marcador2}</span>
-        </div>
-      `;
+  <div class="matchup final">
+    <span class="estado">${estado} · ${categoria}</span>
+
+    <div class="equipo ${clase1}">
+      <span class="nombre">${equipo1}</span>
+      <span class="puntos">${marcador1}</span>
+    </div>
+
+    <div class="equipo ${clase2}">
+      <span class="nombre">${equipo2}</span>
+      <span class="puntos">${marcador2}</span>
+    </div>
+  </div>
+`;
     });
 
     if (contenedor.innerHTML === "") {
