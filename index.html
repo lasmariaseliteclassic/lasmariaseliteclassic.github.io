@@ -332,8 +332,30 @@ z-index: 3;
       }
 
       .matchup {
-        font-size: 15px;
-      }
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 14px 16px;
+  font-size: 15px;
+}
+
+.matchup span {
+  width: 100%;
+  text-align: left;
+}
+
+.matchup span:first-child {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.matchup span:nth-child(2),
+.matchup span:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+      
     }
 /* GALERÍA */
 .gallery-grid{
