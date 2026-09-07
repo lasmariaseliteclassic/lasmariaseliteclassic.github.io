@@ -331,29 +331,27 @@ z-index: 3;
         padding: 60px 18px;
       }
 
-      .matchup {
-  grid-template-columns: 1fr;
-  gap: 8px;
+      ..matchup {
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 18px;
   padding: 14px 16px;
   font-size: 15px;
 }
 
-.matchup span {
-  width: 100%;
-  text-align: left;
-}
-
 .matchup span:first-child {
+  grid-column: 1 / -1;
+  text-align: center;
   font-size: 12px;
   opacity: 0.75;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
-.matchup span:nth-child(2),
+.matchup span:nth-child(2) {
+  text-align: right;
+}
+
 .matchup span:nth-child(3) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: left;
 }
       
     }
