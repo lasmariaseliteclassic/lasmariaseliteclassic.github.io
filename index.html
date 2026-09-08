@@ -325,14 +325,15 @@
     }
 
     .leader-icon {
-      font-size: 42px;
+      font-size: 38px;
       margin-bottom: 10px;
     }
 
     .leader-stat {
       color: var(--dorado-claro);
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 900;
+      margin: 8px 0;
     }
 
     footer {
@@ -672,6 +673,7 @@
   <a href="#categorias">Categorías</a>
   <a href="#calendario">Calendario</a>
   <a href="#resultados">Resultados</a>
+  <a href="#lideres">Líderes</a>
   <a href="#galeria">Galería</a>
   <a href="#auspiciadores">Auspiciadores</a>
   <a href="#equipos">Equipos</a>
@@ -1377,6 +1379,45 @@
   </div>
 </section>
 
+<!-- SECCIÓN DE LÍDERES ANOTADORES -->
+<section id="lideres">
+  <div class="resultados-card">
+
+    <div class="section-title">
+      <small>Estadísticas del Torneo</small>
+      <h2>Líderes Anotadores</h2>
+      <p>Máximos encestadores por categoría de Las Marías Elite Classic Basketball</p>
+    </div>
+
+    <div class="grid">
+      <div class="card leader">
+        <div class="leader-icon"><i class="fa-solid fa-trophy icon" style="font-size:1em; margin:0;"></i></div>
+        <h3 style="color:var(--dorado-claro);">JUNIOR</h3>
+        <p class="leader-stat" id="pts-junior">-- PTS</p>
+        <p><strong id="nombre-junior">Por definir</strong></p>
+        <p id="equipo-junior">--</p>
+      </div>
+
+      <div class="card leader">
+        <div class="leader-icon"><i class="fa-solid fa-trophy icon" style="font-size:1em; margin:0;"></i></div>
+        <h3 style="color:var(--dorado-claro);">SENIOR</h3>
+        <p class="leader-stat" id="pts-senior">-- PTS</p>
+        <p><strong id="nombre-senior">Por definir</strong></p>
+        <p id="equipo-senior">--</p>
+      </div>
+
+      <div class="card leader">
+        <div class="leader-icon"><i class="fa-solid fa-trophy icon" style="font-size:1em; margin:0;"></i></div>
+        <h3 style="color:var(--dorado-claro);">SENIOR FEMENINO</h3>
+        <p class="leader-stat" id="pts-fem">-- PTS</p>
+        <p><strong id="nombre-fem">Por definir</strong></p>
+        <p id="equipo-fem">--</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- GALERÍA -->
 <section id="galeria">
 
@@ -1502,50 +1543,53 @@
     <div class="card" id="equipos-junior">
       <h3>JUNIOR</h3>
       <p><strong>Escuelas participantes</strong></p>
-      <p>🏀 Maricao</p>
-      <p>🏀 MML 2</p>
-      <p>🏀 MML 3</p>
-      <p>🏀 MML 4</p>
-      <p>🏀 Eva Patria y Custodio A</p>
-      <p>🏀 Eva Patria y Custodio B</p>
-      <p>🏀 CDI Isabela</p>
-      <p>🏀 Catalina Morales</p>
-      <p>🏀 Eugenio M. De Hostos</p>
-      <p>🏀 Eladio Tirado</p>
-      <p>🏀 Luis Felipe Crespo</p>
-      <p>🏀 Lares A</p>
+      <p>Maricao</p>
+      <p>MML 2</p>
+      <p>MML 3</p>
+      <p>MML 4</p>
+      <p>Eva Patria y Custodio A</p>
+      <p>Eva Patria y Custodio B</p>
+      <p>CDI Isabela</p>
+      <p>Catalina Morales</p>
+      <p>Eugenio M. De Hostos</p>
+      <p>Eladio Tirado</p>
+      <p>Luis Felipe Crespo</p>
+      <p>Lares A</p>
+      <br>
       <p><strong>12 equipos inscritos • CATEGORIA CERRADA</strong></p>
     </div>
 
     <div class="card" id="equipos-senior">
       <h3>SENIOR</h3>
       <p><strong>Escuelas participantes</strong></p>
-      <p>🏀 Maricao</p>
-      <p>🏀 Eva Patria y Custodio A</p>
-      <p>🏀 Eva Patria y Custodio B</p>
-      <p>🏀 Catalina Morales B</p>
-      <p>🏀 Quebrada High</p>
-      <p>🏀 Eladio Tirado A</p>
-      <p>🏀 Eladio Tirado B</p>
-      <p>🏀 Angel P. Millán A</p>
-      <p>🏀 Angel P. Millán B</p>
-      <p>🏀 Luis Felipe Crespo</p>
-      <p>🏀 Patria Latorre</p>
-      <p>🏀 CDI Isabela</p>
-      <p>🏀 Lares A</p>
-      <p>🏀 Lares B</p>
+      <p>Maricao</p>
+      <p>Eva Patria y Custodio A</p>
+      <p>Eva Patria y Custodio B</p>
+      <p>Catalina Morales B</p>
+      <p>Quebrada High</p>
+      <p>Eladio Tirado A</p>
+      <p>Eladio Tirado B</p>
+      <p>Angel P. Millán A</p>
+      <p>Angel P. Millán B</p>
+      <p>Luis Felipe Crespo</p>
+      <p>Patria Latorre</p>
+      <p>CDI Isabela</p>
+      <p>Lares A</p>
+      <p>Lares B</p>
+      <br>
       <p><strong>14 equipos inscritos • CATEGORÍA CERRADA</strong></p>
     </div>
 
     <div class="card" id="equipos-senior-femenino">
       <h3>SENIOR FEMENINO</h3>
       <p><strong>Escuelas participantes</strong></p>
-      <p>🏀 Eva Patria y Custodio</p>
-      <p>🏀 Loaiza Cordero</p>
-      <p>🏀 MML</p>
-      <p>🏀 ESCAED</p>
-      <p>🏀 Lares</p>
-      <p>🏀 Maricao</p>
+      <p>Eva Patria y Custodio</p>
+      <p>Loaiza Cordero</p>
+      <p>MML</p>
+      <p>ESCAED</p>
+      <p>Lares</p>
+      <p>Maricao</p>
+      <br>
       <p><strong>6 equipos inscritos • CATEGORIA CERRADA</strong></p>
     </div>
 
