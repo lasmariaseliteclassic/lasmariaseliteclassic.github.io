@@ -364,45 +364,50 @@
         font-size: 15px;
       }
 
-      #resultados-automaticos .matchup.final {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px 18px;
-        padding: 16px;
-      }
+    #resultados-automaticos .matchup.final {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  padding: 16px 20px;
+}
 
-      #resultados-automaticos .matchup.final .estado {
-        grid-column: 1 / -1;
-        text-align: center;
-        font-size: 12px;
-        opacity: 0.75;
-        margin-bottom: 4px;
-      }
+/* FINAL · CATEGORÍA */
+#resultados-automaticos .matchup.final .estado {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
 
-      #resultados-automaticos .matchup.final .equipo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        text-align: center;
-        min-width: 0;
-      }
+/* Cada equipo aporta sus elementos al grid principal */
+#resultados-automaticos .matchup.final .equipo {
+  display: contents;
+}
 
-      #resultados-automaticos .matchup.final .nombre {
-        font-size: 14px;
-        font-weight: 800;
-        line-height: 1.15;
-        min-height: 32px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-      }
+/* PRIMERA LÍNEA: NOMBRES */
+#resultados-automaticos .matchup.final .nombre {
+  grid-row: 2;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+}
 
-      #resultados-automaticos .matchup.final .puntos {
-        font-size: 30px;
-        font-weight: 900;
-        line-height: 1;
-        margin-top: 8px;
-      }
+/* SEGUNDA LÍNEA: PUNTOS */
+#resultados-automaticos .matchup.final .puntos {
+  grid-row: 3;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* GANADOR */
+#resultados-automaticos .matchup.final .equipo.winner .nombre,
+#resultados-automaticos .matchup.final .equipo.winner .puntos {
+  color: #f4a600;
+}
     }
 
     /* GALERÍA */
