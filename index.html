@@ -1796,18 +1796,27 @@ async function cargarResultados() {
       const clase2 = puntos2 > puntos1 ? "winner" : "";
 
       contenedor.innerHTML += `
-  <div class="matchup final">
-    <span class="estado">${estado} · ${categoria}</span>
+  <div class="matchup final" style="display:block;">
+    
+    <span class="estado"
+          style="display:block; text-align:center; margin-bottom:14px;">
+      ${estado} · ${categoria}
+    </span>
 
-    <div class="equipo ${clase1}">
-      <span class="nombre">${equipo1}</span>
-      <span class="puntos">${marcador1}</span>
+    <div style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px 20px;
+      text-align:center;
+      align-items:center;
+    ">
+      <span class="${clase1}" style="font-weight:800;">${equipo1}</span>
+      <span class="${clase2}" style="font-weight:800;">${equipo2}</span>
+
+      <span class="${clase1}" style="font-size:30px; font-weight:900;">${marcador1}</span>
+      <span class="${clase2}" style="font-size:30px; font-weight:900;">${marcador2}</span>
     </div>
 
-    <div class="equipo ${clase2}">
-      <span class="nombre">${equipo2}</span>
-      <span class="puntos">${marcador2}</span>
-    </div>
   </div>
 `;
     });
