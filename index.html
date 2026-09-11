@@ -711,7 +711,64 @@
   <a href="#reglamento">Reglamento</a>
   <a href="#documentos">Documentos</a>
 </nav>
+<!-- COUNTDOWN LAS MARÍAS ELITE CLASSIC -->
+<section id="countdown-torneo" style="text-align:center; padding:28px 15px;">
+  <div style="font-size:14px; font-weight:800; letter-spacing:2px; margin-bottom:8px;">
+    FALTA POCO PARA
+  </div>
 
+  <h2 style="margin:0 0 20px;">EL GRAN TORNEO 🏀</h2>
+
+  <div id="countdown" style="
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+  "></div>
+</section>
+
+<script>
+const fechaTorneo = new Date("2026-09-17T16:00:00-04:00").getTime();
+
+function actualizarCountdown() {
+  const ahora = new Date().getTime();
+  const distancia = fechaTorneo - ahora;
+  const contador = document.getElementById("countdown");
+
+  if (distancia <= 0) {
+    contador.innerHTML = "<strong>🔥 ¡EL GRAN TORNEO HA COMENZADO! 🔥</strong>";
+    return;
+  }
+
+  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((distancia / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((distancia / (1000 * 60)) % 60);
+  const segundos = Math.floor((distancia / 1000) % 60);
+
+  const datos = [
+    [dias, "DÍAS"],
+    [horas, "HORAS"],
+    [minutos, "MIN"],
+    [segundos, "SEG"]
+  ];
+
+  contador.innerHTML = datos.map(([numero, texto]) => `
+    <div style="
+      min-width:72px;
+      padding:14px 10px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      background:rgba(0,0,0,.25);
+    ">
+      <div style="font-size:30px; font-weight:900;">${String(numero).padStart(2,"0")}</div>
+      <div style="font-size:10px; font-weight:800; letter-spacing:1px;">${texto}</div>
+    </div>
+  `).join("");
+}
+
+actualizarCountdown();
+setInterval(actualizarCountdown, 1000);
+</script>
 <section>
   <div class="section-title">
     <small>Torneo Preparatorio</small>
