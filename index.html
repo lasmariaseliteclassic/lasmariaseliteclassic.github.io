@@ -104,8 +104,35 @@
       position: relative;
       z-index: 3;
       filter: drop-shadow(0 18px 30px rgba(0,0,0,.85)) brightness(1.18) contrast(1.12);
-    }
+   animation: logoImpacto .85s cubic-bezier(.16,.84,.32,1.18) both;
+@keyframes logoImpacto {
+  0% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1.35);
+  }
 
+  48% {
+    opacity: 1;
+    transform: translateY(4px) scale(.96);
+  }
+
+  65% {
+    transform: translateX(-3px) scale(1.03);
+  }
+
+  76% {
+    transform: translateX(3px) scale(1.01);
+  }
+
+  88% {
+    transform: translateX(-1px) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
     .season {
       display: inline-block;
       margin-top: 12px;
@@ -206,10 +233,39 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 20px;
     }
+.documentos-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
 
+.documentos-grid .card {
+  padding: 14px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.documentos-grid .card h3 {
+  font-size: 16px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.documentos-grid .card p {
+  font-size: 12px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.documentos-grid .btn {
+  padding: 8px 12px;
+  font-size: 11px;
+  margin-top: auto;
+  align-self: flex-start;
+}
     .card,
     .game {
       background: linear-gradient(145deg, #132319, #111411);
@@ -1672,11 +1728,12 @@ setInterval(actualizarCountdown, 1000);
 
 <section id="documentos">
   <div class="section-title">
-    <small>Documentos</small>
-
-    <h2>Reglamento</h2>
-  </div>
-
+  <small>Descargas</small>
+  <h2>DOCUMENTOS</h2>
+  <p>Formularios oficiales del Las Marías Elite Classic Basketball</p>
+</div>
+ 
+<div class="grid documentos-grid">
   <div class="card">
     <h3><i class="fa-solid fa-file-shield icon"></i>Reglamento Oficial</h3>
     <p>
@@ -1690,17 +1747,11 @@ setInterval(actualizarCountdown, 1000);
       <i class="fa-solid fa-book-open icon"></i>Ver Reglamento Oficial
     </a>
   </div>
-</section>
 
-<section>
+  
 
-  <div class="section-title">
-    <small>Descargas</small>
-    <h2>DOCUMENTOS</h2>
-    <p>Formularios oficiales del Las Marías Elite Classic Basketball</p>
-  </div>
 
-  <div class="grid">
+
 
     <div class="card">
       <h3><i class="fa-solid fa-id-card icon"></i>Carnet de Jugadores</h3>
