@@ -104,8 +104,33 @@
       position: relative;
       z-index: 3;
       filter: drop-shadow(0 18px 30px rgba(0,0,0,.85)) brightness(1.18) contrast(1.12);
-    }
+   animation: logoEntrada 1.4s ease-out forwards, logoFlota 4s ease-in-out 1.4s infinite; }
+@keyframes logoEntrada {
+  0% {
+    opacity: 0;
+    transform: scale(.75);
+    filter: drop-shadow(0 0 0 rgba(197,138,43,0));
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 28px rgba(197,138,43,.75));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 18px 30px rgba(0,0,0,.55));
+  }
+}
 
+@keyframes logoFlota {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.015);
+  }
+}
     .season {
       display: inline-block;
       margin-top: 12px;
