@@ -104,31 +104,33 @@
       position: relative;
       z-index: 3;
       filter: drop-shadow(0 18px 30px rgba(0,0,0,.85)) brightness(1.18) contrast(1.12);
-   animation: logoEntrada 1.4s ease-out forwards, logoFlota 4s ease-in-out 1.4s infinite; }
-@keyframes logoEntrada {
+   animation: logoImpacto .85s cubic-bezier(.16,.84,.32,1.18) both;
+@keyframes logoImpacto {
   0% {
     opacity: 0;
-    transform: scale(.75);
-    filter: drop-shadow(0 0 0 rgba(197,138,43,0));
+    transform: translateY(-28px) scale(1.35);
   }
-  70% {
+
+  48% {
     opacity: 1;
-    transform: scale(1.06);
-    filter: drop-shadow(0 0 28px rgba(197,138,43,.75));
+    transform: translateY(4px) scale(.96);
   }
+
+  65% {
+    transform: translateX(-3px) scale(1.03);
+  }
+
+  76% {
+    transform: translateX(3px) scale(1.01);
+  }
+
+  88% {
+    transform: translateX(-1px) scale(1);
+  }
+
   100% {
     opacity: 1;
-    transform: scale(1);
-    filter: drop-shadow(0 18px 30px rgba(0,0,0,.55));
-  }
-}
-
-@keyframes logoFlota {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.015);
+    transform: translate(0, 0) scale(1);
   }
 }
     .season {
