@@ -231,10 +231,35 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 20px;
     }
+.documentos-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
 
+.documentos-grid .card {
+  padding: 14px;
+  min-height: 0;
+}
+
+.documentos-grid .card h3 {
+  font-size: 16px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.documentos-grid .card p {
+  font-size: 12px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.documentos-grid .btn {
+  padding: 8px 12px;
+  font-size: 11px;
+}
     .card,
     .game {
       background: linear-gradient(145deg, #132319, #111411);
@@ -1702,7 +1727,7 @@ setInterval(actualizarCountdown, 1000);
   <p>Formularios oficiales del Las Marías Elite Classic Basketball</p>
 </div>
  
-<div class="grid">
+<div class="grid documentos-grid">
   <div class="card">
     <h3><i class="fa-solid fa-file-shield icon"></i>Reglamento Oficial</h3>
     <p>
