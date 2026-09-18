@@ -1797,59 +1797,115 @@ setInterval(actualizarCountdown, 1000);
   © 2026 • Todos los derechos reservados
 </footer>
 
-<script src="galeria/fotos.js"></script>
+
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
 
-  const contenedorGaleria = document.getElementById("galeria-fotos");
+  const galleryGrid = document.getElementById("galleryGrid");
+  const galleryEmpty = document.getElementById("galleryEmpty");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxClose = document.getElementById("lightboxClose");
 
-  if (!contenedorGaleria) return;
+  if (!galleryGrid) return;
 
-  contenedorGaleria.innerHTML = "";
+  const API_URL =
+    "https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
 
-  if (typeof fotos !== "undefined" && Array.isArray(fotos)) {
+  try {
 
-    fotos.forEach(function (foto) {
+    const response = await fetch(API_URL, {
+      headers: {
+        "Accept": "application/vnd.github+json"
+      }
+    });
 
-      const imagen = document.createElement("img");
+    if (!response.ok) {
+      throw new Error("No se pudo cargar la galería.");
+    }
 
-      imagen.src = "./galeria/" + encodeURIComponent(foto);
-      imagen.alt = "Las Marías Elite Classic Basketball";
-      imagen.loading = "lazy";
-      imagen.decoding = "async";
+    const archivos = await response.json();
 
-      imagen.style.width = "100%";
-      imagen.style.height = "auto";
-      imagen.style.aspectRatio = "4 / 3";
-      imagen.style.objectFit = "cover";
-      imagen.style.display = "block";
-      imagen.style.borderRadius = "14px";
-      imagen.style.cursor = "pointer";
+    const fotos = archivos
+      .filter(archivo =>
+        archivo.type === "file" &&
+        /\.(jpg|jpeg|png|webp)$/i.test(archivo.name)
+      )
+      .sort((a, b) => b.name.localeCompare(a.name));
 
-      imagen.addEventListener("click", function () {
-        window.open(imagen.src, "_blank");
+    galleryGrid.innerHTML = "";
+
+    if (fotos.length === 0) {
+      if (galleryEmpty) galleryEmpty.style.display = "block";
+      return;
+    }
+
+    if (galleryEmpty) galleryEmpty.style.display = "none";
+
+    fotos.forEach((foto, index) => {
+
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "gallery-item";
+
+      const img = document.createElement("img");
+      img.src = foto.download_url;
+      img.alt = "Las Marías Elite Classic";
+      img.loading = index < 6 ? "eager" : "lazy";
+
+      item.appendChild(img);
+
+      item.addEventListener("click", function () {
+        if (!lightbox || !lightboxImg) return;
+
+        lightboxImg.src = foto.download_url;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
       });
 
-      contenedorGaleria.appendChild(imagen);
+      galleryGrid.appendChild(item);
 
     });
 
+  } catch (error) {
+
+    console.error("Error cargando la galería:", error);
+
+    galleryGrid.innerHTML = "";
+
+    if (galleryEmpty) {
+      galleryEmpty.textContent =
+        "No se pudieron cargar las fotografías en este momento.";
+      galleryEmpty.style.display = "block";
+    }
+
   }
+
+  function cerrarLightbox() {
+    if (!lightbox || !lightboxImg) return;
+
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", cerrarLightbox);
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) cerrarLightbox();
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarLightbox();
+  });
 
 });
 </script>
-  if (typeof fotos !== "undefined" && contenedorGaleria) {
-    fotos.forEach(function(foto) {
-      const imagen = document.createElement("img");
-      imagen.src = "galeria/" + foto;
-      imagen.alt = "Las Marías Elite Classic Basketball";
-      imagen.loading = "lazy";
-      contenedorGaleria.appendChild(imagen);
-    });
-  }
-</script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
