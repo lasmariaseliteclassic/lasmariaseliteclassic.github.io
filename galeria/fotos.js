@@ -1,1 +1,6 @@
-const fotos = [];
+const fotos = [
+  DSCO5345.JPEG
+  DSCO5366.JPEG
+DSO5379.JPEG
+DS5382.JPEG
+DS5383.JPEG
