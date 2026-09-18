@@ -1800,8 +1800,45 @@ setInterval(actualizarCountdown, 1000);
 <script src="galeria/fotos.js"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
   const contenedorGaleria = document.getElementById("galeria-fotos");
 
+  if (!contenedorGaleria) return;
+
+  contenedorGaleria.innerHTML = "";
+
+  if (typeof fotos !== "undefined" && Array.isArray(fotos)) {
+
+    fotos.forEach(function (foto) {
+
+      const imagen = document.createElement("img");
+
+      imagen.src = "./galeria/" + encodeURIComponent(foto);
+      imagen.alt = "Las Marías Elite Classic Basketball";
+      imagen.loading = "lazy";
+      imagen.decoding = "async";
+
+      imagen.style.width = "100%";
+      imagen.style.height = "auto";
+      imagen.style.aspectRatio = "4 / 3";
+      imagen.style.objectFit = "cover";
+      imagen.style.display = "block";
+      imagen.style.borderRadius = "14px";
+      imagen.style.cursor = "pointer";
+
+      imagen.addEventListener("click", function () {
+        window.open(imagen.src, "_blank");
+      });
+
+      contenedorGaleria.appendChild(imagen);
+
+    });
+
+  }
+
+});
+</script>
   if (typeof fotos !== "undefined" && contenedorGaleria) {
     fotos.forEach(function(foto) {
       const imagen = document.createElement("img");
