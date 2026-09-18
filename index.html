@@ -1802,97 +1802,61 @@ setInterval(actualizarCountdown, 1000);
 <script>
 document.addEventListener("DOMContentLoaded", async function () {
 
-  const galleryGrid = document.getElementById("galleryGrid");
-  const galleryEmpty = document.getElementById("galleryEmpty");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const lightboxClose = document.getElementById("lightboxClose");
+    const galeria = document.getElementById("galeria-fotos");
+    if (!galeria) return;
 
-  if (!galleryGrid) return;
+    const API = "https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
 
-  const API_URL =
-    "https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
+    try {
+        const respuesta = await fetch(API);
 
-  try {
+        if (!respuesta.ok) {
+            throw new Error("Error al obtener las fotos");
+        }
 
-    const response = await fetch(API_URL, {
-      headers: {
-        "Accept": "application/vnd.github+json"
-      }
-    });
+        const archivos = await respuesta.json();
 
-    if (!response.ok) {
-      throw new Error("No se pudo cargar la galería.");
+        const fotos = archivos.filter(function(archivo) {
+            return archivo.type === "file" &&
+                   /\.(jpg|jpeg|png|webp)$/i.test(archivo.name);
+        });
+
+        galeria.innerHTML = "";
+
+        fotos.forEach(function(foto) {
+
+            const imagen = document.createElement("img");
+
+            imagen.src = foto.download_url;
+            imagen.alt = "Las Marías Elite Classic";
+            imagen.loading = "lazy";
+
+            imagen.style.width = "100%";
+            imagen.style.height = "auto";
+            imagen.style.aspectRatio = "4 / 3";
+            imagen.style.objectFit = "cover";
+            imagen.style.display = "block";
+            imagen.style.borderRadius = "14px";
+            imagen.style.cursor = "pointer";
+
+            imagen.addEventListener("click", function () {
+                window.open(foto.download_url, "_blank");
+            });
+
+            galeria.appendChild(imagen);
+        });
+
+        if (fotos.length === 0) {
+            galeria.innerHTML = "<p>No hay fotografías disponibles.</p>";
+        }
+
+    } catch (error) {
+        console.error(error);
+        galeria.innerHTML = "<p>No se pudieron cargar las fotografías.</p>";
     }
 
-    const archivos = await response.json();
-
-    const fotos = archivos
-      .filter(archivo =>
-        archivo.type === "file" &&
-        /\.(jpg|jpeg|png|webp)$/i.test(archivo.name)
-      )
-      .sort((a, b) => b.name.localeCompare(a.name));
-
-    galleryGrid.innerHTML = "";
-
-    if (fotos.length === 0) {
-      if (galleryEmpty) galleryEmpty.style.display = "block";
-      return;
-    }
-
-    if (galleryEmpty) galleryEmpty.style.display = "none";
-
-    fotos.forEach((foto, index) => {
-
-      const item = document.createElement("button");
-      item.type = "button";
-      item.className = "gallery-item";
-
-      const img = document.createElement("img");
-      img.src = foto.download_url;
-      img.alt = "Las Marías Elite Classic";
-      img.loading = index < 6 ? "eager" : "lazy";
-
-      item.appendChild(img);
-
-      item.addEventListener("click", function () {
-        if (!lightbox || !lightboxImg) return;
-
-        lightboxImg.src = foto.download_url;
-        lightbox.classList.add("open");
-        lightbox.setAttribute("aria-hidden", "false");
-      });
-
-      galleryGrid.appendChild(item);
-
-    });
-
-  } catch (error) {
-
-    console.error("Error cargando la galería:", error);
-
-    galleryGrid.innerHTML = "";
-
-    if (galleryEmpty) {
-      galleryEmpty.textContent =
-        "No se pudieron cargar las fotografías en este momento.";
-      galleryEmpty.style.display = "block";
-    }
-
-  }
-
-  function cerrarLightbox() {
-    if (!lightbox || !lightboxImg) return;
-
-    lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImg.src = "";
-  }
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", cerrarLightbox);
-  }
+});
+</script>
 
   if (lightbox) {
     lightbox.addEventListener("click", function (e) {
