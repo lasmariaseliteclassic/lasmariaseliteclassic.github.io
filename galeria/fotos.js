@@ -1,7 +1,7 @@
 const fotos = [
-"DSC05345.jpeg",
-"DSC05366.jpeg",
-"DS05379.jpeg",
-"DS05382.jpeg",
-"DS05383.jpeg"
+"DSCO5345.jpeg",
+"DSCO5366.jpeg",
+"DSO5379.jpeg",
+"DSO5382.jpeg",
+"DSO5383.jpeg"
   ];
