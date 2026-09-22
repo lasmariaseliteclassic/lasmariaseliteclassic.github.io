@@ -460,7 +460,7 @@ section{
 ============================================ */
 
 .tournament-section{
-  background:#eceeef;
+  background:#25292d;
 }
 
 .tournament-card{
@@ -1604,7 +1604,27 @@ Galería del torneo
 class="tournament-gallery"
 id="torneoFotos">
 </div>
+<button
+class="btn outline"
+type="button"
+onclick="document.getElementById('torneoFotos').style.display='none'; this.style.display='none'; document.getElementById('abrirGaleriaTorneo').style.display='inline-flex';">
 
+<i class="fa-solid fa-chevron-up"></i>
+CERRAR GALERÍA
+
+</button>
+
+<button
+id="abrirGaleriaTorneo"
+class="btn outline"
+type="button"
+style="display:none"
+onclick="document.getElementById('torneoFotos').style.display='grid'; this.style.display='none'; this.previousElementSibling.style.display='inline-flex';">
+
+<i class="fa-regular fa-images"></i>
+VER GALERÍA
+
+</button>
 
 
 <div style="margin-top:28px">
