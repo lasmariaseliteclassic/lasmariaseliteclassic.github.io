@@ -1,2039 +1,902 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b17">
+<title>Organización Brillando Juntos LLC</title>
 
-  <title>Las Marías Elite Classic Basketball</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Metadatos para vista previa en WhatsApp, Facebook y Redes Sociales -->
-  <meta name="description" content="Portal oficial de Las Marías Elite Classic Basketball. Sigue la cobertura, horarios, resultados y estadísticas.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Las Marías Elite Classic Basketball">
-  <meta property="og:description" content="Sigue la cobertura oficial, calendario y marcadores en vivo.">
-  <meta property="og:image" content="https://lasmariaseliteclassic.github.io/logo-las-marias-elite-classic.png">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0d100e;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-
-    :root {
-      --verde: #123d24;
-      --verde-oscuro: #081a10;
-      --dorado: #c58a2b;
-      --dorado-claro: #dda743;
-      --negro: #0d0d0d;
-      --crema: #f4f0e6;
-      --gris: #a8aaa8;
-    }
-
-    .icon {
-      color: var(--dorado);
-      font-size: 1.25em;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-
-    header {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 50px 20px;
-      position: relative;
-      overflow: hidden;
-      background:
-          linear-gradient(rgba(6,18,11,.72), rgba(10,10,10,.82)),
-          url("Fondo-inicio.JPG") center center / cover no-repeat;
-    }
-
-    header::before {
-      content: "";
-      position: absolute;
-      inset: -20px;
-      background: url("Fondo-inicio.JPG") center center / cover no-repeat;
-      filter: blur(7px);
-      transform: scale(1.05);
-      z-index: 0;
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-          radial-gradient(circle at top, rgba(197,138,43,.10), transparent 42%),
-          linear-gradient(
-              180deg,
-              rgba(18,20,19,.82) 0%,
-              rgba(12,15,13,.88) 55%,
-              rgba(7,9,8,.96) 100%
-          );
-      z-index: 1;
-    }
-
-    .hero {
-      width: 100%;
-      max-width: 900px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-logo {
-      display: block;
-      width: min(620px, 92%);
-      height: auto;
-      margin: 0 auto 25px;
-      position: relative;
-      z-index: 3;
-      filter: drop-shadow(0 18px 30px rgba(0,0,0,.85)) brightness(1.18) contrast(1.12);
-   animation: logoEntrada 1.4s ease-out forwards, logoFlota 4s ease-in-out 1.4s infinite; }
-@keyframes logoEntrada {
-  0% {
-    opacity: 0;
-    transform: scale(.75);
-    filter: drop-shadow(0 0 0 rgba(197,138,43,0));
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.06);
-    filter: drop-shadow(0 0 28px rgba(197,138,43,.75));
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: drop-shadow(0 18px 30px rgba(0,0,0,.55));
-  }
+<style>
+:root{
+  --bg:#061713;
+  --bg2:#0b241e;
+  --card:#102d26;
+  --text:#f7f7f2;
+  --muted:#b8c8c1;
+  --gold:#d8b34b;
+  --line:rgba(255,255,255,.12);
+  --max:1180px
 }
 
-@keyframes logoFlota {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.015);
-  }
-}
-    .season {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 11px 25px;
-      border: 1px solid var(--dorado);
-      color: var(--dorado-claro);
-      border-radius: 50px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      background: rgba(0,0,0,.3);
-    }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-    /* ESTILO OFICIAL PARA BOTONES */
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--dorado), var(--verde));
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 25px;
-      border: 1px solid var(--dorado-claro);
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(197, 138, 43, 0.4);
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(6,18,11,.97);
-      border-bottom: 2px solid var(--dorado);
-      overflow-x: auto;
-      white-space: nowrap;
-      text-align: center;
-    }
-
-    nav a {
-      display: inline-block;
-      color: white;
-      text-decoration: none;
-      padding: 18px 16px;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    nav a:hover {
-      color: var(--dorado-claro);
-    }
-
-    section {
-      max-width: 1150px;
-      margin: auto;
-      padding: 80px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title small {
-      color: var(--dorado);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-weight: bold;
-    }
-
-    .section-title h2 {
-      font-size: clamp(34px, 6vw, 55px);
-      text-transform: uppercase;
-      margin-top: 10px;
-    }
-
-    .section-title p {
-      color: var(--gris);
-      margin-top: 12px;
-    }
-
-    .welcome {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      font-size: 18px;
-      color: #d2d2d2;
-    }
-
-    .highlight {
-      color: var(--dorado-claro);
-      font-weight: bold;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 20px;
-    }
-.documentos-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Montserrat,Arial,sans-serif;
+  line-height:1.55
 }
 
-.documentos-grid .card {
-  padding: 14px;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
+a{color:inherit}
+
+.wrap{
+  width:min(var(--max),calc(100% - 32px));
+  margin:auto
 }
 
-.documentos-grid .card h3 {
-  font-size: 16px;
-  line-height: 1.2;
-  margin-bottom: 8px;
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(6,23,19,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)
 }
 
-.documentos-grid .card p {
-  font-size: 12px;
-  line-height: 1.35;
-  margin-bottom: 10px;
+.navin{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  gap:22px
 }
 
-.documentos-grid .btn {
-  padding: 8px 12px;
-  font-size: 11px;
-  margin-top: auto;
-  align-self: flex-start;
-}
-    .card,
-    .game {
-      background: linear-gradient(145deg, #132319, #111411);
-      border: 1px solid #294332;
-      border-radius: 16px;
-      padding: 25px;
-    }
-
-    .card {
-      transition: .25s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--dorado);
-    }
-
-    .card p {
-      color: #b6b8b6;
-    }
-
-    .game {
-      margin-bottom: 15px;
-    }
-
-    .game-date {
-      color: var(--dorado);
-      text-transform: uppercase;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .matchup {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-      align-items: center;
-      gap: 18px;
-      margin: 10px 12px;
-      padding: 14px 16px;
-      font-weight: bold;
-      font-size: 17px;
-      background: rgba(0,0,0,.22);
-      border: 1px solid rgba(221,167,67,.22);
-      border-radius: 10px;
-    }
-
-    .matchup.final {
-      border-color: #f4a600;
-    }
-
-    .matchup.final .vs {
-      color: #f4a600;
-      font-weight: 900;
-    }
-
-    .matchup.final .winner {
-      color: #f4a600;
-      font-weight: 900;
-    }
-
-    .matchup span:first-child {
-      text-align: left;
-    }
-
-    .matchup .vs {
-      text-align: center;
-      min-width: 35px;
-    }
-
-    .matchup span:last-child {
-      text-align: right;
-    }
-
-    .vs {
-      color: var(--dorado);
-      font-size: 13px;
-    }
-
-    .table-wrapper {
-      overflow-x: auto;
-      border-radius: 15px;
-      border: 1px solid #294332;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 600px;
-      background: #121914;
-    }
-
-    th {
-      background: var(--verde);
-      color: var(--dorado-claro);
-      text-transform: uppercase;
-      padding: 14px;
-      font-size: 13px;
-    }
-
-    td {
-      padding: 14px;
-      text-align: center;
-      border-bottom: 1px solid #294332;
-    }
-
-    td:first-child {
-      text-align: left;
-      font-weight: bold;
-    }
-
-    .leader {
-      text-align: center;
-    }
-
-    .leader-icon {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    .leader-stat {
-      color: var(--dorado-claro);
-      font-size: 30px;
-      font-weight: 900;
-    }
-
-    footer {
-      border-top: 2px solid var(--dorado);
-      background: #06110a;
-      text-align: center;
-      padding: 45px 20px;
-      color: #8d918e;
-    }
-
-    footer strong {
-      color: var(--dorado-claro);
-    }
-
-    @media (max-width: 600px) {
-      header {
-        min-height: 72vh;
-      }
-
-      .hero-logo {
-        width: 96%;
-      }
-
-      section {
-        padding: 60px 18px;
-      }
-
-      .matchup {
-        font-size: 15px;
-      }
-
-    #resultados-automaticos .matchup.final {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 20px;
-  padding: 16px 20px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-right:auto;
+  text-decoration:none;
+  font-weight:900
 }
 
-/* FINAL · CATEGORÍA */
-#resultados-automaticos .matchup.final .estado {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 13px;
-  opacity: 0.8;
-  margin-bottom: 5px;
+.brand img{
+  width:44px;
+  height:44px;
+  object-fit:contain
 }
 
-/* Cada equipo aporta sus elementos al grid principal */
-#resultados-automaticos .matchup.final .equipo {
-  display: contents;
+.links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap
 }
 
-/* PRIMERA LÍNEA: NOMBRES */
-#resultados-automaticos .matchup.final .nombre {
-  grid-row: 2;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.2;
+.links a{
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.5px
 }
 
-/* SEGUNDA LÍNEA: PUNTOS */
-#resultados-automaticos .matchup.final .puntos {
-  grid-row: 3;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 900;
-  line-height: 1;
+.links a:hover{color:var(--gold)}
+
+.hero{
+  min-height:74vh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(3,17,14,.94),rgba(3,17,14,.64)),
+    url('Fondo-inicio.JPG') center/cover
 }
 
-/* GANADOR */
-#resultados-automaticos .matchup.final .equipo.winner .nombre,
-#resultados-automaticos .matchup.final .equipo.winner .puntos {
-  color: #f4a600;
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:170px;
+  background:linear-gradient(transparent,var(--bg))
 }
-    }
 
-    /* GALERÍA */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 25px;
-    }
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:80px 0;
+  max-width:850px
+}
 
-    .gallery-grid img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 14px;
-      display: block;
-    }
+.hero-logo{
+  width:min(240px,55vw);
+  max-height:170px;
+  object-fit:contain;
+  object-position:left center;
+  margin-bottom:22px
+}
 
-    /* TARJETA RESULTADOS */
-    .resultados-card {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 24px;
-      background: rgba(10, 15, 12, 0.88);
-      border: 1px solid rgba(244, 166, 0, 0.55);
-      border-radius: 20px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    }
+.eyebrow{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2.6px;
+  text-transform:uppercase
+}
 
-    .resultados-card:hover {
-      transform: translateY(-6px);
-      border-color: #f4a600;
-      box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(244, 166, 0, 0.18);
-    }
+.hero h1{
+  font-family:Oswald,sans-serif;
+  font-size:clamp(46px,8vw,92px);
+  line-height:.96;
+  margin:10px 0 18px;
+  text-transform:uppercase
+}
 
-    @keyframes entradaResultados {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.hero p{
+  font-size:clamp(16px,2vw,21px);
+  max-width:720px;
+  color:#e3ebe7
+}
 
-    .resultados-card {
-      animation: entradaResultados 0.7s ease-out;
-    }
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px
+}
 
-    /* AUSPICIADORES */
-    .sponsors-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 30px;
-    }
+.btn{
+  display:inline-block;
+  padding:13px 19px;
+  border-radius:8px;
+  background:var(--gold);
+  color:#102018;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.6px;
+  border:1px solid var(--gold);
+  cursor:pointer
+}
 
-    .sponsor-card {
-      min-height: 170px;
-      padding: 22px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(244,166,0,0.35);
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform .35s ease,
-                  box-shadow .35s ease,
-                  border-color .35s ease,
-                  background .35s ease;
-    }
+.btn.secondary{
+  background:transparent;
+  color:white;
+  border-color:rgba(255,255,255,.35)
+}
 
-    .sponsor-card img {
-      width: 100%;
-      max-width: 170px;
-      max-height: 120px;
-      object-fit: contain;
-      transition: transform .35s ease;
-    }
+section{padding:76px 0}
 
-    .sponsor-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      border-color: #f4a600;
-      background: rgba(244,166,0,0.06);
-      box-shadow:
-        0 18px 40px rgba(0,0,0,.45),
-        0 0 25px rgba(244,166,0,.25);
-    }
+.section-head{
+  max-width:760px;
+  margin-bottom:30px
+}
 
-    .sponsor-card:hover img {
-      transform: scale(1.08);
-    }
+.section-head h2{
+  font-family:Oswald,sans-serif;
+  font-size:clamp(34px,5vw,56px);
+  line-height:1;
+  margin:8px 0 12px;
+  text-transform:uppercase
+}
 
-    @media (max-width: 600px) {
-      .sponsors-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
+.section-head p{
+  color:var(--muted);
+  margin:0
+}
 
-      .sponsor-card {
-        min-height: 130px;
-        padding: 15px;
-      }
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px
+}
 
-    /* CORRECCIÓN PARA IPAD */
-    @media (min-width: 769px) and (max-width: 1100px) {
-      details.game > summary.game-date {
-        white-space: normal;
-        line-height: 1.35;
-        padding: 18px 20px;
-      }
-        #resultados-automaticos .matchup.final {
-    display: block;
-    padding: 16px;
+.card{
+  background:linear-gradient(
+    145deg,
+    rgba(20,58,49,.95),
+    rgba(11,36,30,.95)
+  );
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 18px 45px rgba(0,0,0,.16)
+}
+
+.card h3{
+  margin:5px 0 9px;
+  font-size:18px
+}
+
+.card p{
+  color:var(--muted);
+  margin:0
+}
+
+.icon{
+  font-size:28px;
+  margin-bottom:12px
+}
+
+.impact{
+  background:#f0e8cf;
+  color:#102018
+}
+
+.impact-grid{
+  display:grid;
+  grid-template-columns:1.2fr 2fr;
+  gap:34px;
+  align-items:center
+}
+
+.big-number{
+  font-family:Oswald,sans-serif;
+  font-size:clamp(90px,16vw,170px);
+  font-weight:700;
+  line-height:.8;
+  color:#8a6b13
+}
+
+.impact h2{
+  font-family:Oswald,sans-serif;
+  font-size:clamp(34px,5vw,55px);
+  margin:0 0 12px;
+  text-transform:uppercase
+}
+
+.impact p{color:#33463e}
+
+.event{
+  background:linear-gradient(135deg,#0c2c24,#163b31);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+
+.event-top{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:30px;
+  align-items:center
+}
+
+.event-logo{
+  width:min(330px,80%);
+  display:block;
+  margin:auto
+}
+
+.chips{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:20px 0
+}
+
+.chip{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:11px;
+  font-weight:800
+}
+
+.teams{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:28px
+}
+
+.teams details{
+  background:rgba(0,0,0,.15);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:15px
+}
+
+.teams summary{
+  cursor:pointer;
+  font-weight:900
+}
+
+.teams p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8
+}
+
+.winners{
+  margin-top:18px;
+  padding:18px;
+  border-left:4px solid var(--gold);
+  background:rgba(216,179,75,.08);
+  border-radius:8px
+}
+
+.winners strong{color:var(--gold)}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:24px
+}
+
+.gallery-grid img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+  background:#0d2b24
+}
+
+.gallery-wrap[hidden]{display:none}
+
+.center{text-align:center}
+.empty{color:var(--muted)}
+
+.next-card{
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  align-items:center
+}
+
+.next-card h3{
+  font-family:Oswald,sans-serif;
+  font-size:34px;
+  margin:0
+}
+
+.contact{background:#0a211b}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px
+}
+
+.contact a{word-break:break-word}
+
+.social{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px
+}
+
+footer{
+  padding:32px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px
+}
+
+.footerin{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center
+}
+
+.footerin img{
+  width:58px;
+  height:58px;
+  object-fit:contain
+}
+
+@media(max-width:850px){
+  .links{display:none}
+
+  .grid,
+  .teams,
+  .impact-grid,
+  .event-top,
+  .contact-grid{
+    grid-template-columns:1fr
   }
 
-  #resultados-automaticos .estado {
-    display: block;
-    text-align: center;
-    margin-bottom: 12px;
+  .gallery-grid{
+    grid-template-columns:repeat(2,1fr)
   }
 
-  #resultados-automaticos .equipo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 14px;
-    margin: 6px 0;
+  .hero{min-height:70vh}
+
+  .next-card,
+  .footerin{
+    align-items:flex-start;
+    flex-direction:column
   }
 
-  #resultados-automaticos .nombre {
-    text-align: left;
-  }
-
-  #resultados-automaticos .puntos {
-    font-size: 24px;
-    font-weight: 900;
-    margin-left: 15px;
-  }
-    }
-
-    /* OPTIMIZACIÓN PARA CELULARES */
-    @media (max-width: 768px) {
-      nav {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-        justify-content: flex-start;
-        gap: 6px;
-        padding: 10px 8px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      nav::-webkit-scrollbar {
-        display: none;
-      }
-
-      nav a {
-        flex: 0 0 auto;
-        font-size: 13px;
-        padding: 9px 12px;
-      }
-
-      section {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
-      .section-title {
-        margin-bottom: 22px;
-      }
-
-      .section-title small {
-        font-size: 12px;
-        letter-spacing: 1.5px;
-      }
-
-      .section-title h2 {
-        font-size: clamp(30px, 9vw, 44px);
-        line-height: 1.05;
-        margin: 8px 0 12px;
-      }
-
-      .section-title p {
-        font-size: 14px;
-        line-height: 1.5;
-        padding: 0 8px;
-      }
-
-      .card,
-      .category-card,
-      .resultados-card {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-
-      .resultados-card {
-        padding: 24px 14px;
-        border-radius: 16px;
-      }
-
-      .btn {
-        min-height: 46px;
-        padding: 12px 18px;
-        font-size: 14px;
-      }
-
-      .matchup {
-        padding: 14px 12px;
-        font-size: 14px;
-        gap: 7px;
-      }
-
-      .matchup span {
-        line-height: 1.35;
-      }
-.documentos-grid {
-  grid-template-columns: 1fr !important;
+  .hero-logo{max-height:130px}
+  .impact-grid{gap:12px}
 }
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .gallery-grid img {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-      }
-
-      .sponsors-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-      }
-
-      .sponsor-card {
-        min-height: 115px;
-        padding: 8px;
-        border-radius: 13px;
-      }
-
-      .sponsor-card img {
-        width: 100%;
-        max-width: 110px;
-        max-height: 90px;
-        object-fit: contain;
-      }
-
-      .hero-logo {
-        max-width: 78%;
-        height: auto;
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-<header id="inicio">
-  <div class="hero">
+<nav>
+  <div class="wrap navin">
+    <a class="brand" href="#inicio">
+      <img src="BRILLANDO JUNTOS LOGO.PNG" alt="Logo Organización Brillando Juntos LLC">
+      <span>BRILLANDO JUNTOS</span>
+    </a>
+
+    <div class="links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Lo que ofrecemos</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#elite-classic">Elite Classic</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap hero-content">
 
     <img
       class="hero-logo"
-      src="logo-las-marias-elite-classic.png"
-      alt="Las Marías Elite Classic Basketball"
+      src="BRILLANDO JUNTOS LOGO.PNG"
+      alt="Organización Brillando Juntos LLC"
     >
 
-    <div class="season">
-      TEMPORADA 2026
+    <div class="eyebrow">
+      Baloncesto · Recreación · Comunidad
     </div>
-    <br>
-    <button class="btn"
-            onclick="compartirTorneo()"
-            style="margin-top:18px;">
-      <i class="fa-solid fa-share-nodes"></i>
-      COMPARTIR TORNEO
-    </button>
+
+    <h1>
+      Un espacio para crecer, compartir y pertenecer.
+    </h1>
+
+    <p>
+      Organización Brillando Juntos LLC impacta a jóvenes
+      a través del baloncesto, la recreación y espacios
+      de sana convivencia para varones y féminas.
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="#servicios">
+        CONOCE LO QUE HACEMOS
+      </a>
+
+      <a class="btn secondary" href="#contacto">
+        CONTÁCTANOS
+      </a>
+    </div>
+
   </div>
 </header>
 
-<nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#categorias">Categorías</a>
-  <a href="#calendario">Calendario</a>
-  <a href="#resultados">Resultados</a>
-  <a href="#galeria">Galería</a>
-  <a href="#auspiciadores">Auspiciadores</a>
-  <a href="#equipos">Equipos</a>
-  <a href="#documentos">Documentos</a>
-</nav>
-<!-- COUNTDOWN LAS MARÍAS ELITE CLASSIC -->
-<section id="countdown-torneo" style="text-align:center; padding:8px 15px 28px;">
-  <div style="text-align:center; margin-bottom:18px;">
-  <a href="https://www.facebook.com/share/1BiyYXJQQk/?mibextid=wwXIfr"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Visitar Shot Clock Sports en Facebook"
-   style="display:inline-block;">
-   
-  <img src="SHOT CLOCK LOGO.PNG"
-       alt="Shot Clock Sports"
-       style="width:300px; max-width:85%; height:auto; display:block; margin:0 auto -70px auto;">
-</a>
+<section id="nosotros">
+  <div class="wrap">
 
-  <div style="font-size:13px; font-weight:800; letter-spacing:3px; margin-top:0;">
-  TE TRAE EL
-</div>
+    <div class="section-head">
+      <div class="eyebrow">Quiénes somos</div>
 
-<h2 style="margin:0; font-size:28px;">
-  COUNTDOWN
-</h2>
-</div>
-<div style="margin:10px 0 14px;">
-  <a href="https://www.facebook.com/share/1BiyYXJQQk/?mibextid=wwXIfr"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="
-       display:inline-block;
-       padding:8px 14px;
-       border:1px solid rgba(255,255,255,.35);
-       border-radius:999px;
-       text-decoration:none;
-       font-size:11px;
-       font-weight:800;
-       letter-spacing:1px;
-       color:white;
-       background:rgba(255,255,255,.06);
-     ">
-    VER COBERTURA EN FACEBOOK
-  </a>
-</div>
-  <div id="countdown" style="
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-  "></div>
-</section>
+      <h2>
+        Brillando juntos dentro y fuera de la cancha
+      </h2>
 
-<script>
-const fechaTorneo = new Date("2026-09-17T16:00:00-04:00").getTime();
-
-function actualizarCountdown() {
-  const ahora = new Date().getTime();
-  const distancia = fechaTorneo - ahora;
-  const contador = document.getElementById("countdown");
-
-  if (distancia <= 0) {
-    contador.innerHTML = "<strong>🔥 ¡EL GRAN TORNEO HA COMENZADO! 🔥</strong>";
-    return;
-  }
-
-  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((distancia / (1000 * 60 * 60)) % 24);
-  const minutos = Math.floor((distancia / (1000 * 60)) % 60);
-  const segundos = Math.floor((distancia / 1000) % 60);
-
-  const datos = [
-    [dias, "DÍAS"],
-    [horas, "HORAS"],
-    [minutos, "MIN"],
-    [segundos, "SEG"]
-  ];
-
-  contador.innerHTML = datos.map(([numero, texto]) => `
-    <div style="
-      min-width:72px;
-      padding:14px 10px;
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:12px;
-      background:rgba(0,0,0,.25);
-    ">
-      <div style="font-size:30px; font-weight:900;">${String(numero).padStart(2,"0")}</div>
-      <div style="font-size:10px; font-weight:800; letter-spacing:1px;">${texto}</div>
-    </div>
-  `).join("");
-}
-
-actualizarCountdown();
-setInterval(actualizarCountdown, 1000);
-</script>
-<section>
-  <div class="section-title">
-    <small>Torneo Preparatorio</small>
-    <h2>Elite Classic</h2>
-  </div>
-
-  <div class="welcome">
-    Bienvenidos al portal oficial de
-    <span class="highlight">Las Marías Elite Classic Basketball.</span>
-    Aquí podrás seguir calendario, resultados, posiciones,
-    estadísticas, equipos y toda la información oficial del torneo.
-  </div>
-</section>
-
-<section id="categorias">
-
-  <div class="section-title">
-    <small>Competencia</small>
-    <h2>Categorías</h2>
-    <p>Las Marías Elite Classic Basketball</p>
-  </div>
-
-  <div class="grid">
-
-    <a href="#junior" class="card category-card">
-      <h3>JUNIOR</h3>
-      <p>12 equipos</p>
-      <span>VER CATEGORÍA →</span>
-    </a>
-
-    <a href="#senior" class="card category-card">
-      <h3>SENIOR</h3>
-      <p>12 equipos</p>
-      <span>VER CATEGORÍA →</span>
-    </a>
-
-    <a href="#senior-femenino" class="card category-card">
-      <h3>SENIOR FEMENINO</h3>
-      <p>8 equipos</p>
-      <span>VER CATEGORÍA →</span>
-    </a>
-
-  </div>
-
-</section>
-
-<section id="junior">
-
-  <div class="section-title">
-    <small>Categoría</small>
-    <h2>JUNIOR</h2>
-    <p>Las Marías Elite Classic Basketball</p>
-  </div>
-
-  <div class="grid">
-
-    <a href="#equipos-junior" class="card category-card">
-      <h3><i class="fa-solid fa-users icon"></i>Equipos</h3>
-      <p>12 equipos participantes</p>
-      <span>VER EQUIPOS →</span>
-    </a>
-
-    <a href="#calendario-junior" onclick="document.getElementById('calendario-junior').hidden=false; document.getElementById('calendario-junior').open=true;" class="card category-card">
-      <h3><i class="fa-solid fa-calendar-days icon"></i>Calendario</h3>
-      <p>Calendario de juegos de la categoría JUNIOR</p>
-      <span>VER CALENDARIO →</span>
-    </a>
-
-    <a href="#brackets-junior" onclick="document.getElementById('brackets-junior').hidden=false;" class="card category-card">
-      <h3><i class="fa-solid fa-diagram-project icon"></i>Bracket</h3>
-      <p>Bracket oficial de la categoría JUNIOR</p>
-      <span>VER BRACKET →</span>
-    </a>
-
-  </div>
-
-</section>
-
-<!-- BRACKET JUNIOR OCULTO -->
-<div id="brackets-junior" hidden>
-
-  <div style="text-align:center; padding:20px 10px;">
-
-    <img src="LMEC JUNIOR BRACKET 2026.PNG"
-         alt="Bracket Junior - Las Marías Elite Classic"
-         loading="lazy"
-         style="width:100%; max-width:1400px; height:auto; border-radius:14px;">
-
-    <div style="margin-top:20px;">
-      <button
-        onclick="document.getElementById('brackets-junior').hidden=true;"
-        class="btn">
-        CERRAR BRACKET
-      </button>
+      <p>
+        Somos una organización enfocada en ofrecer a nuestra
+        juventud oportunidades de desarrollo mediante el
+        baloncesto y un ambiente recreativo donde también
+        puedan compartir, escuchar música y disfrutar de
+        un espacio de convivencia.
+      </p>
     </div>
 
-  </div>
-
-</div>
-
-<details id="calendario-junior" class="game" hidden>
-
-  <summary class="game-date">
-    <i class="fa-solid fa-calendar-days icon"></i>
-    HORARIOS DE JUEGO · JUNIOR
-  </summary>
-
-<div class="matchup">
-  <span>17 SEP · 6:00 PM · LARES A</span>
-  <span class="vs">VS</span>
-  <span>HOSTOS</span>
-</div>
-
-<div class="matchup">
-  <span>17 SEP · 8:00 PM · MARICAO</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-
-<div class="matchup">
-  <span>18 SEP · 4:00 PM · CDI ISABELA</span>
-  <span class="vs">VS</span>
-  <span>MML 2</span>
-</div>
-
-<div class="matchup">
-  <span>18 SEP · 7:00 PM · MML 4</span>
-  <span class="vs">VS</span>
-  <span>EPC B</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 11:00 AM · LARES</span>
-  <span class="vs">VS</span>
-  <span>E. TIRADO</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 2:00 PM · CDI ISABELA</span>
-  <span class="vs">VS</span>
-  <span>C. MORALES</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 4:00 PM · MML 4</span>
-  <span class="vs">VS</span>
-  <span>MML 3</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 6:00 PM · EPC A</span>
-  <span class="vs">VS</span>
-  <span>L. CRESPO</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 10:00 AM · LARES</span>
-  <span class="vs">VS</span>
-  <span>CDI ISABELA</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 12:00 PM · MML 3</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 2:00 PM · LARES</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-  <div style="text-align:center; margin-top:15px;">
-    <button
-      onclick="document.getElementById('calendario-junior').open=false; document.getElementById('calendario-junior').hidden=true;"
-      class="btn">
-      CERRAR HORARIOS
-    </button>
-  </div>
-
-</details>
-
-<section id="senior">
-
-  <div class="section-title">
-    <small>Categoría</small>
-    <h2>SENIOR</h2>
-    <p>Las Marías Elite Classic Basketball</p>
-  </div>
-
-  <div class="grid">
-
-    <a href="#equipos-senior" class="card category-card">
-      <h3><i class="fa-solid fa-users icon"></i>Equipos</h3>
-      <p>12 equipos participantes</p>
-      <span>VER EQUIPOS →</span>
-    </a>
-
-    <a href="#calendario-senior"
-       onclick="document.getElementById('calendario-senior').hidden=false; document.getElementById('calendario-senior').open=true;"
-       class="card category-card">
-      <h3><i class="fa-solid fa-calendar-days icon"></i>Calendario</h3>
-      <p>Calendario de juegos de la categoría SENIOR</p>
-      <span>VER CALENDARIO →</span>
-    </a>
-
-    <a href="#brackets-senior"
-       onclick="document.getElementById('brackets-senior').hidden=false; document.getElementById('brackets-senior').open=true;"
-       class="card category-card">
-      <h3><i class="fa-solid fa-diagram-project icon"></i>Bracket</h3>
-      <p>Bracket oficial de la categoría SENIOR</p>
-      <span>VER BRACKET →</span>
-    </a>
-
-  </div>
-
-</section>
-
-<details id="calendario-senior" class="game" hidden>
-
-  <summary class="game-date">
-    <i class="fa-solid fa-calendar-days icon"></i>
-    HORARIOS DE JUEGO · SENIOR
-  </summary>
-
-  <div class="matchup">
-  <span>17 SEP · 4:00 PM · E. TIRADO A</span>
-  <span class="vs">VS</span>
-  <span>MARICAO</span>
-</div>
-
-<div class="matchup">
-  <span>17 SEP · 7:00 PM · C. MORALES B</span>
-  <span class="vs">VS</span>
-  <span>EPC B</span>
-</div>
-
-<div class="matchup">
-  <span>18 SEP · 6:00 PM · LARES A</span>
-  <span class="vs">VS</span>
-  <span>PATRIA</span>
-</div>
-
-<div class="matchup">
-  <span>18 SEP · 8:00 PM · E. TIRADO B</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 9:00 AM · CDI ISABELA</span>
-  <span class="vs">VS</span>
-  <span>LARES B</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 12:00 PM · QUEBRADAS</span>
-  <span class="vs">VS</span>
-  <span>A. P. MILLÁN A</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 3:00 PM · A. P. MILLÁN B</span>
-  <span class="vs">VS</span>
-  <span>C. MORALES A</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 5:00 PM · E. TIRADO A</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 7:00 PM · LARES A</span>
-  <span class="vs">VS</span>
-  <span>EPC B</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 11:00 AM · A. P. MILLÁN A</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 1:00 PM · LARES A</span>
-  <span class="vs">VS</span>
-  <span>A. P. MILLÁN B</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 3:00 PM · LARES</span>
-  <span class="vs">VS</span>
-  <span>EPC A</span>
-</div>
-  <div style="text-align:center; margin-top:15px;">
-    <button
-      onclick="document.getElementById('calendario-senior').open=false; document.getElementById('calendario-senior').hidden=true;"
-      class="btn">
-      CERRAR HORARIOS
-    </button>
-  </div>
-
-</details>
-
-<section id="senior-femenino">
-
-  <div class="section-title">
-    <small>Categoría</small>
-    <h2>SENIOR FEMENINO</h2>
-    <p>Las Marías Elite Classic Basketball</p>
-  </div>
-
-  <div class="grid">
-
-    <a href="#equipos-senior-femenino" class="card category-card">
-      <h3><i class="fa-solid fa-users icon"></i>Equipos</h3>
-      <p>6 equipos participantes</p>
-      <span>VER EQUIPOS →</span>
-    </a>
-
-    <a href="#calendario-senior-femenino"
-       onclick="document.getElementById('calendario-senior-femenino').hidden=false; document.getElementById('calendario-senior-femenino').open=true;"
-       class="card category-card">
-      <h3><i class="fa-solid fa-calendar-days icon"></i>Calendario</h3>
-      <p>Calendario de juegos de la categoría SENIOR FEMENINO</p>
-      <span>VER CALENDARIO →</span>
-    </a>
-
-    <a href="#brackets-senior-femenino"
-       onclick="document.getElementById('brackets-senior-femenino').hidden=false;"
-       class="card category-card">
-      <h3><i class="fa-solid fa-diagram-project icon"></i>Bracket</h3>
-      <p>Bracket oficial de la categoría SENIOR FEMENINO</p>
-      <span>VER BRACKET →</span>
-    </a>
-
-  </div>
-
-</section>
-
-<!-- BRACKET SENIOR FEMENINO -->
-<div id="brackets-senior-femenino" hidden>
-
-  <div style="text-align:center; padding:20px 10px;">
-
-    <img src="LMEC FEMENINO BRACKET 2026.PNG"
-         alt="Bracket Senior Femenino – Las Marías Elite Classic Basketball"
-         loading="lazy"
-         style="width:100%; max-width:1400px; height:auto; border-radius:12px;">
-
-    <div style="margin-top:20px;">
-      <button
-        onclick="document.getElementById('brackets-senior-femenino').hidden=true;"
-        class="btn">
-        CERRAR BRACKET
-      </button>
-    </div>
-
-  </div>
-
-</div>
-
-<details id="calendario-senior-femenino" class="game" hidden>
-
-  <summary class="game-date">
-    <i class="fa-solid fa-calendar-days icon"></i>
-    HORARIOS DE JUEGO · SENIOR FEMENINO
-  </summary>
-
-  
-<div class="matchup">
-  <span>17 SEP · 5:00 PM · ESCAED</span>
-  <span class="vs">VS</span>
-  <span>MML</span>
-</div>
-
-<div class="matchup">
-  <span>18 SEP · 5:00 PM · L. CORDERO</span>
-  <span class="vs">VS</span>
-  <span>EPC</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 10:00 AM · MML</span>
-  <span class="vs">VS</span>
-  <span>LARES</span>
-</div>
-
-<div class="matchup">
-  <span>19 SEP · 1:00 PM · EPC</span>
-  <span class="vs">VS</span>
-  <span>MARICAO</span>
-</div>
-
-<div class="matchup">
-  <span>20 SEP · 9:00 AM · MML</span>
-  <span class="vs">VS</span>
-  <span>EPC</span>
-</div>
-
-  <div style="text-align:center; margin-top:15px;">
-    <button
-      onclick="document.getElementById('calendario-senior-femenino').open=false; document.getElementById('calendario-senior-femenino').hidden=true;"
-      class="btn">
-      CERRAR HORARIOS
-    </button>
-  </div>
-
-</details>
-
-<!-- PRÓXIMOS JUEGOS AUTOMÁTICOS -->
-<section id="proximos-juegos">
-  <div class="resultados-card">
-
-    <div class="section-title">
-      <small>Lo próximo en cancha</small>
-      <h2>Próximos Juegos</h2>
-      <p>Los próximos partidos del Las Marías Elite Classic Basketball</p>
-    </div>
-
-    <div id="lista-proximos-juegos"></div>
-
-    <div style="text-align:center; margin-top:20px;">
-      <a href="#calendario" class="btn">VER CALENDARIO COMPLETO</a>
-    </div>
-
-  </div>
-</section>
-
-<section id="calendario">
-
-  <div class="section-title">
-    <small>Programación Oficial</small>
-    <h2>Calendario</h2>
-    <p>Las Marías Elite Classic Basketball</p>
-  </div>
-
-  <!-- 17 DE SEPTIEMBRE -->
-  <details class="game">
-    <summary class="game-date">
-      <i class="fa-solid fa-calendar-days icon"></i>
-      17 DE SEPTIEMBRE · 5 JUEGOS
-    </summary>
-
-    <div class="matchup">
-      <span>4:00 PM · SENIOR · E. TIRADO A</span>
-      <span class="vs">VS</span>
-      <span>MARICAO</span>
-    </div>
-
-    <div class="matchup">
-      <span>5:00 PM · FEM · ESCAED</span>
-      <span class="vs">VS</span>
-      <span>MML</span>
-    </div>
-
-    <div class="matchup">
-      <span>6:00 PM · JUNIOR · LARES A</span>
-      <span class="vs">VS</span>
-      <span>HOSTOS</span>
-    </div>
-
-    <div class="matchup">
-      <span>7:00 PM · SENIOR · C. MORALES B</span>
-      <span class="vs">VS</span>
-      <span>EPC B</span>
-    </div>
-
-    <div class="matchup">
-      <span>8:00 PM · JUNIOR · MARICAO</span>
-      <span class="vs">VS</span>
-      <span>EPC A</span>
-    </div>
-
-  </details>
-
-  <!-- 18 DE SEPTIEMBRE -->
-  <details class="game">
-    <summary class="game-date">
-      <i class="fa-solid fa-calendar-days icon"></i>
-      18 DE SEPTIEMBRE · 5 JUEGOS
-    </summary>
-
-    <div class="matchup">
-      <span>4:00 PM · JUNIOR · CDI ISABELA</span>
-      <span class="vs">VS</span>
-      <span>MML 2</span>
-    </div>
-
-    <div class="matchup">
-      <span>5:00 PM · FEM · L. CORDERO</span>
-      <span class="vs">VS</span>
-      <span>EPC</span>
-    </div>
-
-    <div class="matchup">
-      <span>6:00 PM · SENIOR · LARES A</span>
-      <span class="vs">VS</span>
-      <span>PATRIA</span>
-    </div>
-
-    <div class="matchup">
-      <span>7:00 PM · JUNIOR · MML 4</span>
-      <span class="vs">VS</span>
-      <span>EPC B</span>
-    </div>
-
-    <div class="matchup">
-      <span>8:00 PM · SENIOR · E. TIRADO B</span>
-      <span class="vs">VS</span>
-      <span>EPC A</span>
-    </div>
-
-  </details>
-
-  <!-- 19 DE SEPTIEMBRE -->
-  <details class="game">
-    <summary class="game-date">
-      <i class="fa-solid fa-calendar-days icon"></i>
-      19 DE SEPTIEMBRE · 12 JUEGOS
-    </summary>
-
-    <div class="matchup">
-      <span>9:00 AM · SENIOR · CDI ISABELA</span>
-      <span class="vs">VS</span>
-      <span>LARES B</span>
-    </div>
-
-    <div class="matchup">
-      <span>10:00 AM · FEM · ESCAED</span>
-      <span class="vs">VS</span>
-      <span>LARES</span>
-    </div>
-
-    <div class="matchup">
-      <span>11:00 AM · JUNIOR · LARES</span>
-      <span class="vs">VS</span>
-      <span>E. TIRADO</span>
-    </div>
-
-    <div class="matchup">
-      <span>12:00 PM · SENIOR · QUEBRADAS</span>
-      <span class="vs">VS</span>
-      <span>L. CRESPO</span>
-    </div>
-
-    <div class="matchup">
-      <span>1:00 PM · FEM · L. CORDERO</span>
-      <span class="vs">VS</span>
-      <span>MARICAO</span>
-    </div>
-
-    <div class="matchup">
-      <span>2:00 PM · JUNIOR · CDI ISABELA</span>
-      <span class="vs">VS</span>
-      <span>C. MORALES</span>
-    </div>
-
-    <div class="matchup">
-      <span>3:00 PM · SENIOR · C. MORALES</span>
-      <span class="vs">VS</span>
-      <span>A. MILLÁN B</span>
-    </div>
-
-   <div class="matchup">
-      <span>4:00 PM · JUNIOR · MML 4</span>
-      <span class="vs">VS</span>
-      <span>MML 3</span>
-    </div>
-
-    <div class="matchup">
-      <span>5:00 PM · SENIOR · MARICAO</span>
-      <span class="vs">VS</span>
-      <span>A. MILLÁN A</span>
-    </div>
-
-    <div class="matchup">
-      <span>6:00 PM · JUNIOR · EPC A</span>
-      <span class="vs">VS</span>
-      <span>L. CRESPO</span>
-    </div>
-
-    <div class="matchup">
-      <span>7:00 PM · SENIOR · EPC A</span>
-      <span class="vs">VS</span>
-      <span>LARES B</span>
-    </div>
-
-    <div class="matchup">
-      <span>8:00 PM · SENIOR · LARES A</span>
-      <span class="vs">VS</span>
-      <span>QUEBRADAS</span>
-    </div>
-
-    
-
-  </details>
-
-  <!-- 20 DE SEPTIEMBRE -->
-  <details class="game">
-    <summary class="game-date">
-      <i class="fa-solid fa-calendar-days icon"></i>
-      20 DE SEPTIEMBRE · 7 JUEGOS
-    </summary>
-
-     <div class="matchup">
-      <span>9:00 AM · FEM · L. CORDERO</span>
-      <span class="vs">VS</span>
-      <span>LARES</span>
-    </div>
-
-    <div class="matchup">
-      <span>10:00 AM · JUNIOR · LARES A</span>
-      <span class="vs">VS</span>
-      <span>CDI ISABELA</span>
-    </div>
-
-    <div class="matchup">
-      <span>11:00 AM · SENIOR · ANGEL P. MILLÁN A</span>
-      <span class="vs">VS</span>
-      <span>G EPC A</span>
-    </div>
-
-    <div class="matchup">
-      <span>12:00 PM · JUNIOR · MML 3</span>
-      <span class="vs">VS</span>
-      <span>EPC A</span>
-    </div>
-
-    <div class="matchup">
-      <span>1:00 PM · SENIOR · LARES A</span>
-      <span class="vs">VS</span>
-      <span>ANGEL P. MILLÁN B</span>
-    </div>
-
-    <div class="matchup">
-      <span>2:00 PM · JUNIOR · LARES</span>
-      <span class="vs">VS</span>
-      <span>EPC A</span>
-    </div>
-
-    <div class="matchup">
-      <span>3:00 PM · SENIOR · LARES A</span>
-      <span class="vs">VS</span>
-      <span>EPC A</span>
-    </div>
-
-  </details>
-
-</section>
-
-<!-- RESULTADOS -->
-<section id="resultados">
-  <div class="resultados-card">
-
-    <div class="section-title">
-      <small>Marcadores Oficiales</small>
-      <h2>Resultados Recientes</h2>
-      <p>Resultados oficiales del Las Marías Elite Classic Basketball</p>
-    </div>
-
-    <div style="text-align:center;">
-      <button
-        id="btn-ver-resultados"
-        onclick="document.getElementById('scores-resultados').hidden=false; this.hidden=true;"
-        class="btn">
-        VER RESULTADOS
-      </button>
-    </div>
-
-    <div id="scores-resultados" hidden style="max-width:700px; margin:25px auto 0;">
-      <div id="resultados-automaticos"></div>
-
-      <div style="text-align:center; margin-top:18px;">
-        <button
-          onclick="document.getElementById('scores-resultados').hidden=true; document.getElementById('btn-ver-resultados').hidden=false;"
-          class="btn">
-          CERRAR RESULTADOS
-        </button>
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">🏀</div>
+        <h3>Desarrollo deportivo</h3>
+        <p>
+          Baloncesto para jóvenes varones y féminas,
+          con espacios para aprender, practicar y desarrollarse.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Comunidad</h3>
+        <p>
+          Un ambiente para crear vínculos, compartir
+          experiencias positivas y fortalecer el sentido
+          de pertenencia.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎵</div>
+        <h3>Recreación</h3>
+        <p>
+          El espacio también recibe jóvenes que no participan
+          directamente de las clases, pero desean compartir
+          y recrearse sanamente.
+        </p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- GALERÍA -->
-<section id="galeria">
+<section class="impact">
+  <div class="wrap impact-grid">
 
-  <div class="resultados-card">
+    <div class="big-number">+50</div>
 
-    <div class="section-title">
-      <small>Momentos del Torneo</small>
-      <h2>Galería</h2>
-      <p>Fotos oficiales del Las Marías Elite Classic Basketball</p>
+    <div>
+      <div class="eyebrow">Nuestro impacto</div>
+
+      <h2>
+        Jóvenes impactados directamente
+      </h2>
+
+      <p>
+        Actualmente impactamos alrededor de 50 jóvenes
+        de forma directa a través de nuestras iniciativas
+        de baloncesto y recreación. Nuestro propósito es
+        seguir ampliando ese alcance.
+      </p>
     </div>
 
-    <div style="text-align:center;">
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="eyebrow">Lo que ofrecemos</div>
+
+      <h2>Baloncesto con propósito</h2>
+
+      <p>
+        Programas y experiencias dirigidas a crear
+        oportunidades deportivas y recreativas para
+        nuestra juventud.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Baloncesto masculino</h3>
+        <p>
+          Espacios de práctica y desarrollo para jóvenes varones.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Baloncesto femenino</h3>
+        <p>
+          Oportunidades de participación y desarrollo
+          para jóvenes féminas.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Actividades y eventos</h3>
+        <p>
+          Experiencias deportivas y recreativas que conectan
+          atletas, familias, escuelas y comunidad.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="actividades">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="eyebrow">Mantente pendiente</div>
+      <h2>Próximas actividades</h2>
+    </div>
+
+    <div class="card next-card">
+
+      <div>
+        <h3>PRÓXIMAMENTE</h3>
+        <p>
+          Publicaremos aquí nuestras próximas prácticas
+          especiales, actividades, eventos y oportunidades
+          de participación.
+        </p>
+      </div>
+
+      <a class="btn" href="#contacto">
+        SOLICITAR INFORMACIÓN
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="event" id="elite-classic">
+  <div class="wrap">
+
+    <div class="event-top">
+
+      <div>
+
+        <div class="eyebrow">
+          Nuestros eventos · Edición 2026
+        </div>
+
+        <h2 style="
+          font-family:Oswald,sans-serif;
+          font-size:clamp(40px,6vw,66px);
+          line-height:1;
+          margin:8px 0 14px;
+        ">
+          LAS MARÍAS ELITE CLASSIC
+        </h2>
+
+        <p style="color:var(--muted)">
+          El torneo queda como parte de la historia de
+          Organización Brillando Juntos LLC. Aquí conservamos
+          una mirada rápida a la edición 2026: escuelas
+          participantes, protagonistas y fotografías.
+        </p>
+
+        <div class="chips">
+          <span class="chip">JUNIOR</span>
+          <span class="chip">SENIOR</span>
+          <span class="chip">SENIOR FEMENINO</span>
+        </div>
+
+        <div class="winners">
+          <strong>
+            Campeones y subcampeones 2026
+          </strong>
+          <br>
+          <span style="color:var(--muted)">
+            Esta área quedó preparada para añadir los
+            resultados oficiales de cada categoría.
+          </span>
+        </div>
+
+      </div>
+
+      <img
+        class="event-logo"
+        src="logo-las-marias-elite-classic.png"
+        alt="Las Marías Elite Classic 2026"
+      >
+
+    </div>
+
+    <div class="teams">
+
+      <details>
+        <summary>Escuelas · Junior</summary>
+        <p>
+          Maricao · MML 2 · MML 3 · MML 4 ·
+          Eva Patria y Custodio A · Eva Patria y Custodio B ·
+          CDI Isabela · Catalina Morales ·
+          Eugenio M. De Hostos · Eladio Tirado ·
+          Luis Felipe Crespo · Lares A
+        </p>
+      </details>
+
+      <details>
+        <summary>Escuelas · Senior</summary>
+        <p>
+          Maricao · Eva Patria y Custodio A ·
+          Eva Patria y Custodio B · Catalina Morales B ·
+          Quebrada High · Eladio Tirado A ·
+          Eladio Tirado B · Ángel P. Millán A ·
+          Ángel P. Millán B · Luis Felipe Crespo ·
+          Patria Latorre · CDI Isabela ·
+          Lares A · Lares B
+        </p>
+      </details>
+
+      <details>
+        <summary>Escuelas · Senior Femenino</summary>
+        <p>
+          Eva Patria y Custodio · Loaiza Cordero ·
+          MML · ESCAED · Lares · Maricao
+        </p>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="eyebrow">Momentos</div>
+      <h2>Galería</h2>
+
+      <p>
+        Fotografías de nuestras actividades y de
+        Las Marías Elite Classic 2026.
+      </p>
+    </div>
+
+    <div class="center">
       <button
         id="btn-ver-galeria"
-        onclick="document.getElementById('fotos-galeria').hidden=false; this.hidden=true;"
-        class="btn">
+        class="btn"
+        onclick="
+          document.getElementById('fotos-galeria').hidden=false;
+          this.hidden=true
+        "
+      >
         VER GALERÍA
       </button>
     </div>
 
-    <div id="fotos-galeria" hidden style="margin-top:25px;">
+    <div
+      id="fotos-galeria"
+      class="gallery-wrap"
+      hidden
+    >
 
-      <div id="galeria-fotos" class="gallery-grid"></div>
+      <div
+        id="galeria-fotos"
+        class="gallery-grid">
+      </div>
 
-      <div style="text-align:center; margin-top:20px;">
+      <div class="center" style="margin-top:22px">
+
         <button
-          onclick="document.getElementById('fotos-galeria').hidden=true; document.getElementById('btn-ver-galeria').hidden=false;"
-          class="btn">
+          class="btn secondary"
+          onclick="
+            document.getElementById('fotos-galeria').hidden=true;
+            document.getElementById('btn-ver-galeria').hidden=false
+          "
+        >
           CERRAR GALERÍA
         </button>
+
       </div>
 
     </div>
 
   </div>
-
 </section>
 
-<!-- AUSPICIADORES -->
-<section id="auspiciadores">
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
 
-  <div class="resultados-card">
+    <div>
 
-    <div class="section-title">
-      <small>Gracias por apoyar nuestro torneo</small>
-      <h2>Auspiciadores y Colaboradores</h2>
-      <p>Conoce a las empresas y organizaciones que hacen posible el Las Marías Elite Classic Basketball.</p>
-    </div>
+      <div class="section-head">
+        <div class="eyebrow">Conecta con nosotros</div>
 
-    <div class="sponsors-grid" id="sponsors-grid">
+        <h2>Contacto</h2>
 
-      <!-- AR COACH - CON ENLACE -->
-      <a class="sponsor-card"
-         href="https://www.facebook.com/share/19CDPzoyA2/?mibextid=wwXIfr"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Visitar AR Coach">
-        <img src="AR COACH LOGO.PNG?v=2"
-             alt="AR Coach"
-             loading="lazy"
-             style="transform:scale(1.25);">
-      </a>
+        <p>
+          ¿Quieres conocer más sobre nuestros programas,
+          actividades o formas de participar?
+          Comunícate con Organización Brillando Juntos LLC.
+        </p>
+      </div>
 
-      <!-- LAS MARÍAS - CON ENLACE -->
-      <a class="sponsor-card"
-         href="https://www.facebook.com/share/1cL5Bny9bX/?mibextid=wwXIfr"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Visitar Las Marías">
-        <img src="LAS MARIAS LOGO.WEBP"
-             loading="lazy"
-             alt="Las Marías">
-      </a>
+      <div class="social">
+        <a
+          class="btn"
+          href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener"
+        >
+          FACEBOOK
+        </a>
+      </div>
 
-      <a class="sponsor-card"
-         href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Visitar Organización Brillando Juntos L.L.C.">
-        <img src="BRILLANDO JUNTOS LOGO.PNG"
-             loading="lazy"
-             alt="Organización Brillando Juntos L.L.C.">
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BRACKET SENIOR -->
-<div id="brackets-senior" hidden>
-
-  <div style="text-align:center; padding:20px 10px;">
-
-    <img src="LMEC SENIOR BRACKET.PNG"
-         alt="Bracket Senior - Las Marías Elite Classic Basketball"
-         loading="lazy"
-         style="width:100%; max-width:1400px; height:auto; border-radius:12px;">
-
-    <div style="margin-top:20px;">
-      <button
-        onclick="document.getElementById('brackets-senior').hidden=true;"
-        class="btn">
-        CERRAR BRACKET
-      </button>
-    </div>
-
-  </div>
-
-</div>
-
-<section id="equipos">
-
-  <div class="section-title">
-    <small>Participantes</small>
-    <h2>Equipos</h2>
-    <p>Equipos inscritos por categoría</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card" id="equipos-junior">
-      <h3>JUNIOR</h3>
-      <p><strong>Escuelas participantes</strong></p>
-      <p>🏀 Maricao</p>
-      <p>🏀 MML 2</p>
-      <p>🏀 MML 3</p>
-      <p>🏀 MML 4</p>
-      <p>🏀 Eva Patria y Custodio A</p>
-      <p>🏀 Eva Patria y Custodio B</p>
-      <p>🏀 CDI Isabela</p>
-      <p>🏀 Catalina Morales</p>
-      <p>🏀 Eugenio M. De Hostos</p>
-      <p>🏀 Eladio Tirado</p>
-      <p>🏀 Luis Felipe Crespo</p>
-      <p>🏀 Lares A</p>
-      <p><strong>12 equipos inscritos • CATEGORIA CERRADA</strong></p>
-    </div>
-
-    <div class="card" id="equipos-senior">
-      <h3>SENIOR</h3>
-      <p><strong>Escuelas participantes</strong></p>
-      <p>🏀 Maricao</p>
-      <p>🏀 Eva Patria y Custodio A</p>
-      <p>🏀 Eva Patria y Custodio B</p>
-      <p>🏀 Catalina Morales B</p>
-      <p>🏀 Quebrada High</p>
-      <p>🏀 Eladio Tirado A</p>
-      <p>🏀 Eladio Tirado B</p>
-      <p>🏀 Angel P. Millán A</p>
-      <p>🏀 Angel P. Millán B</p>
-      <p>🏀 Luis Felipe Crespo</p>
-      <p>🏀 Patria Latorre</p>
-      <p>🏀 CDI Isabela</p>
-      <p>🏀 Lares A</p>
-      <p>🏀 Lares B</p>
-      <p><strong>14 equipos inscritos • CATEGORÍA CERRADA</strong></p>
-    </div>
-
-    <div class="card" id="equipos-senior-femenino">
-      <h3>SENIOR FEMENINO</h3>
-      <p><strong>Escuelas participantes</strong></p>
-      <p>🏀 Eva Patria y Custodio</p>
-      <p>🏀 Loaiza Cordero</p>
-      <p>🏀 MML</p>
-      <p>🏀 ESCAED</p>
-      <p>🏀 Lares</p>
-      <p>🏀 Maricao</p>
-      <p><strong>6 equipos inscritos • CATEGORIA CERRADA</strong></p>
-    </div>
-
-  </div>
-</section>
-
-<section id="documentos">
-  <div class="section-title">
-  <small>Descargas</small>
-  <h2>DOCUMENTOS</h2>
-  <p>Formularios oficiales del Las Marías Elite Classic Basketball</p>
-</div>
- 
-<div class="grid documentos-grid">
-  <div class="card">
-    <h3><i class="fa-solid fa-file-shield icon"></i>Reglamento Oficial</h3>
-    <p>
-      Consulta el reglamento oficial, requisitos de participación
-      y normas de competencia del Las Marías Elite Classic Basketball.
-    </p>
-
-    <a href="LM-ELITE-CLASSIC-BASKETBALL-RULES.pdf"
-       target="_blank"
-       class="btn">
-      <i class="fa-solid fa-book-open icon"></i>Ver Reglamento Oficial
-    </a>
-  </div>
-
-  
-
-
-
-
-    <div class="card">
-      <h3><i class="fa-solid fa-id-card icon"></i>Carnet de Jugadores</h3>
-      <p>Formulario oficial para jugadores.</p>
-      <a href="LMEC_CARNET_JUGADORES_BALONCESTO_.pdf" download class="btn">
-        DESCARGAR PDF
-      </a>
     </div>
 
     <div class="card">
-      <h3><i class="fa-solid fa-clipboard-list icon"></i>Roster</h3>
-      <p>Roster oficial de jugadores.</p>
-      <a href="LMEC_ROSTER_JUGADORES_BALONCESTO.pdf" download class="btn">
-        DESCARGAR PDF
-      </a>
-    </div>
+      <h3>Información de contacto</h3>
 
-    <div class="card">
-      <h3><i class="fa-solid fa-file-signature icon"></i>Relevo de Responsabilidad</h3>
-      <p>Formulario de relevo de responsabilidad.</p>
-      <a href="LMEC_RELEVO_DE_RESPONSABILIDAD_BALONCESTO_.pdf" download class="btn">
-        DESCARGAR PDF
-      </a>
-    </div>
-
-    <div class="card">
-      <h3><i class="fa-solid fa-id-badge icon"></i>Carnet de Staff</h3>
-      <p>Formulario oficial para el staff técnico.</p>
-      <a href="LMEC_CARNET_STAFF_TECNICO_BALONCESTO_.pdf" download class="btn">
-        DESCARGAR PDF
-      </a>
+      <p>
+        Podemos añadir aquí teléfono, WhatsApp, correo
+        electrónico, ubicación y redes adicionales
+        cuando quieras.
+      </p>
     </div>
 
   </div>
-
 </section>
 
 <footer>
-  <strong>LAS MARÍAS ELITE CLASSIC BASKETBALL</strong>
-  <br>
-  Torneo Preparatorio • Temporada 2026
-  <br><br>
-  © 2026 • Todos los derechos reservados
-</footer>
+  <div class="wrap footerin">
 
-
-
-<script>
-document.addEventListener("DOMContentLoaded", async function () {
-
-    const galeria = document.getElementById("galeria-fotos");
-    if (!galeria) return;
-
-    const API = "https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
-
-    try {
-        const respuesta = await fetch(API);
-
-        if (!respuesta.ok) {
-            throw new Error("Error al obtener las fotos");
-        }
-
-        const archivos = await respuesta.json();
-
-        const fotos = archivos.filter(function(archivo) {
-            return archivo.type === "file" &&
-                   /\.(jpg|jpeg|png|webp)$/i.test(archivo.name);
-        });
-
-        galeria.innerHTML = "";
-
-        fotos.forEach(function(foto) {
-
-            const imagen = document.createElement("img");
-
-            imagen.src = foto.download_url;
-            imagen.alt = "Las Marías Elite Classic";
-            imagen.loading = "lazy";
-
-            imagen.style.width = "100%";
-            imagen.style.height = "auto";
-            imagen.style.aspectRatio = "4 / 3";
-            imagen.style.objectFit = "cover";
-            imagen.style.display = "block";
-            imagen.style.borderRadius = "14px";
-            imagen.style.cursor = "pointer";
-
-            imagen.addEventListener("click", function () {
-                window.open(foto.download_url, "_blank");
-            });
-
-            galeria.appendChild(imagen);
-        });
-
-        if (fotos.length === 0) {
-            galeria.innerHTML = "<p>No hay fotografías disponibles.</p>";
-        }
-
-    } catch (error) {
-        console.error(error);
-        galeria.innerHTML = "<p>No se pudieron cargar las fotografías.</p>";
-    }
-
-});
-</script>
-
-  if (lightbox) {
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) cerrarLightbox();
-    });
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") cerrarLightbox();
-  });
-
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const contenedor = document.getElementById("lista-proximos-juegos");
-  const calendario = document.getElementById("calendario");
-
-  if (!contenedor || !calendario) return;
-
-  const meses = {
-    "ENERO": 0, "FEBRERO": 1, "MARZO": 2, "ABRIL": 3,
-    "MAYO": 4, "JUNIO": 5, "JULIO": 6, "AGOSTO": 7,
-    "SEPTIEMBRE": 8, "OCTUBRE": 9, "NOVIEMBRE": 10,
-    "DICIEMBRE": 11
-  };
-
-  const juegos = [];
-
-  calendario.querySelectorAll("details.game").forEach(function(dia) {
-
-    const resumen = dia.querySelector(".game-date");
-    if (!resumen) return;
-
-    const textoFecha = resumen.textContent.trim().toUpperCase();
-    const fechaMatch = textoFecha.match(/(\d{1,2})\s+DE\s+([A-ZÁÉÍÓÚÑ]+)/);
-
-    if (!fechaMatch) return;
-
-    const numeroDia = parseInt(fechaMatch[1]);
-    const mes = meses[fechaMatch[2]];
-
-    if (mes === undefined) return;
-
-    dia.querySelectorAll(".matchup").forEach(function(partido) {
-
-      const spans = partido.querySelectorAll("span");
-      if (spans.length < 3) return;
-
-      const info = spans[0].textContent.trim();
-      const rival = spans[2].textContent.trim();
-
-      const horaMatch = info.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-      if (!horaMatch) return;
-
-      let hora = parseInt(horaMatch[1]);
-      const minutos = parseInt(horaMatch[2]);
-      const periodo = horaMatch[3].toUpperCase();
-
-      if (periodo === "PM" && hora !== 12) hora += 12;
-      if (periodo === "AM" && hora === 12) hora = 0;
-
-      const fechaJuego = new Date(2026, mes, numeroDia, hora, minutos);
-
-      juegos.push({
-        fecha: fechaJuego,
-        elemento: partido.cloneNode(true)
-      });
-
-    });
-
-  });
-
-  const ahora = new Date();
-
-  const proximos = juegos
-    .filter(juego => juego.fecha > ahora)
-    .sort((a, b) => a.fecha - b.fecha)
-    .slice(0, 3);
-
-  contenedor.innerHTML = "";
-
-  if (proximos.length === 0) {
-    contenedor.innerHTML =
-      '<p style="text-align:center;">No hay próximos juegos programados.</p>';
-    return;
-  }
-
-  proximos.forEach(function(juego) {
-    contenedor.appendChild(juego.elemento);
-  });
-
-});
-</script>
-
-<script>
-const URL_RESULTADOS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOublsYbF0dDD0xpIHzZX7uJl1vh5967jPDOwHT2Iw9ECMrqZRNW3PYGkuNqqs71RocsSkPwQThmdH/pub?gid=1902640657&single=true&output=csv";
-
-async function cargarResultados() {
-  const contenedor = document.getElementById("resultados-automaticos");
-
-  try {
-    const respuesta = await fetch(URL_RESULTADOS + "&t=" + Date.now());
-    const texto = await respuesta.text();
-
-    const filas = texto.trim().split(/\r?\n/).slice(1);
-
-    contenedor.innerHTML = "";
-
-    filas.reverse().forEach(fila => {
-      const columnas = fila.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
-      if (!columnas || columnas.length < 8) return;
-
-      const limpiar = valor =>
-        valor ? valor.replace(/^"|"$/g, "").replace(/""/g, '"').trim() : "";
-
-      const categoria = limpiar(columnas[2]);
-      const equipo1 = limpiar(columnas[3]);
-      const marcador1 = limpiar(columnas[4]);
-      const equipo2 = limpiar(columnas[5]);
-      const marcador2 = limpiar(columnas[6]);
-      const estado = limpiar(columnas[7]);
-
-      if (!equipo1 || !equipo2 || !marcador1 || !marcador2) return;
-
-      const puntos1 = Number(marcador1);
-      const puntos2 = Number(marcador2);
-
-      const clase1 = puntos1 > puntos2 ? "winner" : "";
-      const clase2 = puntos2 > puntos1 ? "winner" : "";
-
-      contenedor.innerHTML += `
-  <div class="matchup final" style="display:block;">
-    
-    <span class="estado"
-          style="display:block; text-align:center; margin-bottom:14px;">
-      ${estado} · ${categoria}
-    </span>
-
-    <div style="
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px 20px;
-      text-align:center;
-      align-items:center;
-    ">
-      <span class="${clase1}" style="font-weight:800;">${equipo1}</span>
-      <span class="${clase2}" style="font-weight:800;">${equipo2}</span>
-
-      <span class="${clase1}" style="font-size:30px; font-weight:900;">${marcador1}</span>
-      <span class="${clase2}" style="font-size:30px; font-weight:900;">${marcador2}</span>
+    <div>
+      <strong style="color:white">
+        ORGANIZACIÓN BRILLANDO JUNTOS LLC
+      </strong>
+      <br>
+      Baloncesto · Recreación · Comunidad
+      <br>
+      © 2026 · Todos los derechos reservados
     </div>
 
-  </div>
-`;
-    });
+    <img
+      src="BRILLANDO JUNTOS LOGO.PNG"
+      alt="Brillando Juntos"
+    >
 
-    if (contenedor.innerHTML === "") {
-      contenedor.innerHTML =
-        '<p style="text-align:center;">No hay resultados publicados todavía.</p>';
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function(){
+
+  const galeria = document.getElementById("galeria-fotos");
+
+  if(!galeria) return;
+
+  const API =
+    "https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
+
+  try{
+
+    const respuesta = await fetch(API);
+
+    if(!respuesta.ok){
+      throw new Error("Error al obtener las fotos");
     }
 
-  } catch (error) {
-    contenedor.innerHTML =
-      '<p style="text-align:center;">No se pudieron cargar los resultados.</p>';
-  }
-}
+    const archivos = await respuesta.json();
 
-cargarResultados();
+    const fotos = archivos.filter(
+      a =>
+        a.type === "file" &&
+        /\.(jpg|jpeg|png|webp)$/i.test(a.name)
+    );
 
-/* Función para el botón de Compartir */
-function compartirTorneo() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Las Marías Elite Classic Basketball',
-      text: 'Sigue el calendario, resultados y brackets oficiales de Las Marías Elite Classic Basketball.',
-      url: window.location.href,
-    }).catch(err => console.log('Compartir cancelado', err));
-  } else {
-    navigator.clipboard.writeText(window.location.href);
-    alert('¡Enlace del torneo copiado al portapapeles!');
+    galeria.innerHTML = "";
+
+    fotos.forEach((foto,index)=>{
+
+      const imagen = document.createElement("img");
+
+      imagen.src = foto.download_url;
+      imagen.alt = "Organización Brillando Juntos LLC";
+      imagen.loading = index < 8 ? "eager" : "lazy";
+
+      imagen.addEventListener(
+        "click",
+        () => window.open(foto.download_url,"_blank")
+      );
+
+      galeria.appendChild(imagen);
+
+    });
+
+    if(!fotos.length){
+      galeria.innerHTML =
+        '<p class="empty">No hay fotografías disponibles.</p>';
+    }
+
+  }catch(e){
+
+    console.error(e);
+
+    galeria.innerHTML =
+      '<p class="empty">No se pudieron cargar las fotografías.</p>';
+
   }
-}
+
+});
 </script>
 
 </body>
