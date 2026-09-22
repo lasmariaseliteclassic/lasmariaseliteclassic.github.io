@@ -187,6 +187,16 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .lb-prev{left:18px;top:50%;transform:translateY(-50%)}
 .lb-next{right:18px;top:50%;transform:translateY(-50%)}
 .lb-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;letter-spacing:1px}
+.carousel{position:relative;aspect-ratio:4/3;overflow:hidden}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;opacity:0;transition:opacity .8s ease}
+.slide.active{opacity:1}
+.car-btn{position:absolute;z-index:2;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:var(--navy);cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 16px rgba(31,42,122,.25);transition:background .2s ease}
+.car-btn:hover{background:var(--magenta);color:#fff}
+.car-btn svg{width:20px;height:20px}
+.car-prev{left:12px} .car-next{right:12px}
+.car-dots{position:absolute;z-index:2;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.car-dot{width:9px;height:9px;border-radius:999px;border:none;background:rgba(255,255,255,.65);cursor:pointer;padding:0;transition:width .25s ease,background .25s ease}
+.car-dot.active{width:26px;background:var(--magenta)}
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:960px){
   .links{display:none}
@@ -256,7 +266,32 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
       <span class="deco deco-ring" aria-hidden="true"></span>
       <span class="deco deco-lime" aria-hidden="true"></span>
       <div class="hero-photo">
-        <img src="equipo.jpg" alt="Equipo de jóvenes de Organización Brillando Juntos L.L.C.">
+        <div class="carousel" id="hero-carousel" aria-roledescription="carrusel" aria-label="Fotos del torneo Las Marías Elite Classic">
+        <img class="slide active" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_3826.jpeg" alt="Jugador del equipo SUM en el torneo Las Marías Elite Classic 2026" loading="eager" fetchpriority="high">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_3840.jpeg" alt="Jugador de Knights EPC en acción" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6915.jpeg" alt="Jugadoras en plena acción de juego" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6924.jpeg" alt="Equipo femenino Storm Queens EPC" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6933.jpeg" alt="Jugadora del equipo Elvira" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6942.jpeg" alt="Jugadora de Storm Queens EPC con el balón" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6954.jpeg" alt="Jugador driblando en el torneo" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6963.jpeg" alt="Jugador de Knights EPC en acción" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_6991.jpeg" alt="Jugadores de Knights EPC en el banquillo" loading="lazy">
+        <img class="slide" src="https://raw.githubusercontent.com/lasmariaseliteclassic/lasmariaseliteclassic.github.io/main/torneo-fotos/IMG_7010.jpeg" alt="Acción de juego del torneo Elite Classic 2026" loading="lazy">
+          <button class="car-btn car-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="car-btn car-next" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+          <div class="car-dots">
+          <button class="car-dot active" data-i="0" aria-label="Ir a la foto 1"></button>
+          <button class="car-dot" data-i="1" aria-label="Ir a la foto 2"></button>
+          <button class="car-dot" data-i="2" aria-label="Ir a la foto 3"></button>
+          <button class="car-dot" data-i="3" aria-label="Ir a la foto 4"></button>
+          <button class="car-dot" data-i="4" aria-label="Ir a la foto 5"></button>
+          <button class="car-dot" data-i="5" aria-label="Ir a la foto 6"></button>
+          <button class="car-dot" data-i="6" aria-label="Ir a la foto 7"></button>
+          <button class="car-dot" data-i="7" aria-label="Ir a la foto 8"></button>
+          <button class="car-dot" data-i="8" aria-label="Ir a la foto 9"></button>
+          <button class="car-dot" data-i="9" aria-label="Ir a la foto 10"></button>
+          </div>
+        </div>
       </div>
       <div class="float-card fc-trophy">
         <span class="fc-icon fi-magenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20.5h8"/><path d="M12 16.5v4"/><path d="M7 3.5h10V9a5 5 0 0 1-10 0V3.5z"/><path d="M7 5.5H4.2A1.2 1.2 0 0 0 3 6.7c0 2.6 2 4.7 4.6 4.9"/><path d="M17 5.5h2.8a1.2 1.2 0 0 1 1.2 1.2c0 2.6-2 4.7-4.6 4.9"/></svg></span>
@@ -499,6 +534,33 @@ document.getElementById('btn-cerrar-torneo').addEventListener('click', function(
   document.getElementById('elite-classic').scrollIntoView({behavior:'smooth'});
 });
 
+// Carrusel del hero
+(function(){
+  var car = document.getElementById('hero-carousel');
+  if(!car) return;
+  var slides = car.querySelectorAll('.slide');
+  var dots = car.querySelectorAll('.car-dot');
+  var i = 0, timer = null, DELAY = 5000;
+  function go(n){
+    slides[i].classList.remove('active');
+    dots[i].classList.remove('active');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function play(){
+    stop();
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(function(){ go(i+1); }, DELAY);
+  }
+  car.querySelector('.car-prev').addEventListener('click', function(){ go(i-1); play(); });
+  car.querySelector('.car-next').addEventListener('click', function(){ go(i+1); play(); });
+  dots.forEach(function(d, n){ d.addEventListener('click', function(){ go(n); play(); }); });
+  car.addEventListener('mouseenter', stop);
+  car.addEventListener('mouseleave', play);
+  play();
+})();
 // Galería (carga las fotos de torneo-fotos del repositorio)
 var fotosGaleria = [];
 var galeriaCargada = false;
