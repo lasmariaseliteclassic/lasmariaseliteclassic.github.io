@@ -215,6 +215,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .team-tab.active.t-magenta{background:var(--magenta)}
 .team-tab.active.t-turquoise{background:var(--turquoise)}
 .team-tab.active.t-lime{background:var(--lime)}
+.team-tab.active.t-navy{background:var(--navy)}
 .player-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .player-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s ease;box-shadow:0 10px 26px rgba(31,42,122,.07)}
 .player-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(31,42,122,.13)}
@@ -237,7 +238,8 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .pm-photo svg{width:40%;height:40%;color:#8f97b8}
 .pm-body{padding:26px 28px 30px}
 .pm-team{font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:8px}
-.pm-team.pm-magenta{color:var(--magenta)} .pm-team.pm-turquoise{color:var(--turquoise)} .pm-team.pm-lime{color:#5d8a24}
+.pm-team.pm-magenta{color:var(--magenta)} .pm-team.pm-turquoise{color:var(--turquoise)} .pm-team.pm-lime{color:#5d8a24} .pm-team.pm-navy{color:var(--navy)}
+.pm-detalle{color:var(--muted);font-size:13.5px;margin:14px 0 0;line-height:1.6}
 .pm-name{font-family:Oswald,sans-serif;font-size:32px;color:var(--navy);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
 .pm-meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
 .pm-meta span{background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:12.5px;font-weight:800;color:var(--navy)}
@@ -512,7 +514,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
     <div class="section-head center">
       <div class="eyebrow">Nuestros equipos</div>
       <h2>Equipos EPC</h2>
-      <p>Conoce a los equipos de Organización Brillando Juntos L.L.C. Toca la foto de un jugador o jugadora para ver su perfil.</p>
+      <p>Conoce a los equipos y a los coaches de Organización Brillando Juntos L.L.C. Toca la foto de un jugador, jugadora o coach para ver su perfil.</p>
     </div>
     <div class="team-tabs" id="team-tabs"></div>
     <div class="player-grid" id="player-grid"></div>
@@ -641,7 +643,11 @@ var PLANTILLAS = [
   {id:'junior-b', nombre:'EPC Junior B', color:'magenta', jugadores:[]},
   {id:'senior-a', nombre:'EPC Senior A', color:'turquoise', jugadores:[]},
   {id:'senior-b', nombre:'EPC Senior B', color:'turquoise', jugadores:[]},
-  {id:'senior-fem', nombre:'EPC Senior Femenino', color:'lime', jugadores:[]}
+  {id:'senior-fem', nombre:'EPC Senior Femenino', color:'lime', jugadores:[]},
+  {id:'coaches', nombre:'Coaches', color:'navy', jugadores:[
+    {nombre:'Coach ejemplo 1', numero:'', posicion:'Head Coach', foto:'', detalle:'Certificado por la Federación de Baloncesto de Puerto Rico y el DRD.'},
+    {nombre:'Coach ejemplo 2', numero:'', posicion:'Head Coach', foto:'', detalle:'Certificado por la Federación de Baloncesto de Puerto Rico y el DRD.'}
+  ]}
 ];
 var equipoActivo = 0;
 var SILUETA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1-3.8 4-5.8 7.5-5.8s6.5 2 7.5 5.8"/></svg>';
@@ -689,6 +695,15 @@ function abrirPerfil(eq, j){
   meta.innerHTML = '';
   if (j.numero) meta.innerHTML += '<span>#' + j.numero + '</span>';
   if (j.posicion) meta.innerHTML += '<span>' + j.posicion + '</span>';
+  var viejoDetalle = document.getElementById('pm-detalle');
+  if (viejoDetalle) viejoDetalle.remove();
+  if (j.detalle){
+    var d = document.createElement('p');
+    d.className = 'pm-detalle';
+    d.id = 'pm-detalle';
+    d.textContent = j.detalle;
+    meta.parentNode.insertBefore(d, meta.nextSibling);
+  }
   pm.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
