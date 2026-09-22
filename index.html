@@ -1,161 +1,520 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#202428">
-
-  <title>Organización Brillando Juntos LLC</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:
-        linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)),
-        url("Fondo-inicio.JPG") center/cover no-repeat;
-      font-family:Montserrat,Arial,sans-serif;
-      color:#202428;
-      padding:28px;
-    }
-
-    .wrap{
-      width:min(920px,100%);
-      text-align:center;
-    }
-
-    .logo{
-      width:min(210px,55vw);
-      max-height:150px;
-      object-fit:contain;
-      margin-bottom:34px;
-    }
-
-    .eyebrow{
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:2.8px;
-      text-transform:uppercase;
-      color:#6b7177;
-      margin-bottom:15px;
-    }
-
-    h1{
-      margin:0;
-      font-family:Oswald,sans-serif;
-      font-size:clamp(44px,8vw,84px);
-      line-height:.98;
-      text-transform:uppercase;
-      letter-spacing:-1px;
-      color:#202428;
-    }
-
-    .line{
-      width:72px;
-      height:3px;
-      background:#202428;
-      margin:26px auto;
-      border-radius:999px;
-    }
-
-    p{
-      max-width:680px;
-      margin:0 auto;
-      color:#666d73;
-      font-size:clamp(15px,2vw,18px);
-      line-height:1.75;
-    }
-
-    .tagline{
-      margin-top:26px;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:1.7px;
-      text-transform:uppercase;
-      color:#202428;
-    }
-
-    .button{
-      display:inline-block;
-      margin-top:32px;
-      padding:14px 22px;
-      border-radius:8px;
-      background:#202428;
-      color:#fff;
-      text-decoration:none;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.5px;
-      transition:.2s ease;
-    }
-
-    .button:hover{
-      background:#000;
-    }
-
-    footer{
-      margin-top:46px;
-      color:#90969b;
-      font-size:11px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1f2a7a">
+<title>Organización Brillando Juntos LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1f2a7a; --navy-dark:#141b4d; --magenta:#d61e6d; --pink:#f06292;
+  --turquoise:#12a0a0; --lime:#8bc53f; --ink:#232a3d; --muted:#5b6478;
+  --bg-soft:#f4f6fb; --white:#ffffff; --line:#e6eaf3; --max:1180px; --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:Montserrat,Arial,sans-serif;line-height:1.6}
+img{max-width:100%}
+a{color:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+section{padding:72px 0}
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navin{min-height:72px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto;text-decoration:none}
+.brand img{width:52px;height:52px;object-fit:contain}
+.brand span{font-weight:900;font-size:15px;letter-spacing:.6px;color:var(--navy);line-height:1.15}
+.brand small{display:block;font-size:10px;font-weight:700;letter-spacing:2.4px;color:var(--turquoise)}
+.links{display:flex;gap:20px;align-items:center}
+.links a{text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:.4px;color:var(--navy)}
+.links a:hover{color:var(--magenta)}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;background:var(--magenta);color:#fff;text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:.5px;border:2px solid var(--magenta);cursor:pointer;transition:.2s ease;font-family:Montserrat,sans-serif}
+.btn:hover{background:#b01459;border-color:#b01459;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--turquoise);border-color:var(--turquoise)}
+.btn-outline:hover{background:var(--turquoise);color:#fff;border-color:var(--turquoise)}
+.btn-navy{background:var(--navy);border-color:var(--navy)}
+.btn-navy:hover{background:var(--navy-dark);border-color:var(--navy-dark)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+.burger span{display:block;width:26px;height:3px;background:var(--navy);border-radius:3px;margin:5px 0}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff;padding:10px 20px 18px}
+.mobile-menu a{display:block;padding:12px 4px;text-decoration:none;font-weight:800;font-size:14px;color:var(--navy);border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:block}
+/* ---------- HERO ---------- */
+.hero{padding:64px 0 72px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:2.6px;text-transform:uppercase;color:var(--magenta);margin-bottom:14px}
+.hero h1{font-family:Oswald,sans-serif;font-size:clamp(42px,5.6vw,72px);line-height:1.02;margin:0 0 18px;color:var(--navy);text-transform:uppercase;letter-spacing:-.5px}
+.hero p.lead{font-size:clamp(15px,1.8vw,18px);color:var(--muted);max-width:520px;margin:0 0 30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hero-note{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.dots{display:flex;gap:6px}
+.dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--lime)} .dots i:nth-child(2){background:var(--magenta)} .dots i:nth-child(3){background:var(--turquoise)}
+.hero-photo{border-radius:26px;overflow:hidden;box-shadow:0 30px 60px rgba(31,42,122,.18);border:6px solid #fff;outline:1px solid var(--line)}
+.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+/* ---------- SECTION HEADS ---------- */
+.section-head{max-width:720px;margin-bottom:38px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head h2{font-family:Oswald,sans-serif;font-size:clamp(30px,4.4vw,50px);line-height:1.05;margin:0 0 12px;color:var(--navy);text-transform:uppercase}
+.section-head h2::after{content:"";display:block;width:74px;height:5px;border-radius:99px;background:var(--lime);margin-top:14px}
+.section-head.center h2::after{margin-left:auto;margin-right:auto}
+.section-head p{color:var(--muted);margin:0;font-size:16px}
+/* ---------- CARDS ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-top:6px solid var(--turquoise);border-radius:var(--radius);padding:38px 28px 30px;box-shadow:0 14px 34px rgba(31,42,122,.07);position:relative;transition:.25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(31,42,122,.12)}
+.card.c-magenta{border-top-color:var(--magenta)}
+.card.c-lime{border-top-color:var(--lime)}
+.card.c-turquoise{border-top-color:var(--turquoise)}
+.card .badge{position:absolute;top:-24px;left:28px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:22px;color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.16)}
+.badge.b-turquoise{background:var(--turquoise)} .badge.b-magenta{background:var(--magenta)} .badge.b-lime{background:var(--lime)}
+.card h3{margin:6px 0 10px;font-size:19px;color:var(--navy);font-weight:800}
+.card p{color:var(--muted);margin:0;font-size:14.5px}
+.soft{background:var(--bg-soft)}
+/* ---------- IMPACT ---------- */
+.impact{background:var(--navy-dark);color:#fff;text-align:center}
+.impact h2{color:#fff;font-family:Oswald,sans-serif;font-size:clamp(28px,4vw,44px);margin:0 0 34px;text-transform:uppercase;letter-spacing:.5px}
+.impact-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:900px;margin:0 auto}
+.stat-num{font-family:Oswald,sans-serif;font-size:clamp(52px,7vw,84px);font-weight:700;line-height:1}
+.stat-num.n-lime{color:var(--lime)} .stat-num.n-turquoise{color:#2dd4d4} .stat-num.n-magenta{color:var(--pink)}
+.stat-label{font-size:13.5px;font-weight:700;color:#cdd5ee;margin-top:8px}
+.impact p.lead{color:#aeb8dd;max-width:640px;margin:0 auto 36px}
+/* ---------- ACTIVIDADES ---------- */
+.next-card{display:flex;justify-content:space-between;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-left:8px solid var(--magenta);border-radius:var(--radius);padding:34px 36px;box-shadow:0 14px 34px rgba(31,42,122,.07);flex-wrap:wrap}
+.next-card h3{font-family:Oswald,sans-serif;font-size:32px;margin:0 0 8px;color:var(--navy);letter-spacing:1px}
+.next-card p{color:var(--muted);margin:0;max-width:560px}
+/* ---------- TORNEO ---------- */
+.torneo{background:var(--bg-soft)}
+.torneo-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px;box-shadow:0 18px 44px rgba(31,42,122,.08);display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
+.torneo-card img{width:100%;max-width:300px;justify-self:center;border-radius:16px}
+.torneo-card h2{font-family:Oswald,sans-serif;font-size:clamp(30px,4vw,46px);color:var(--navy);margin:0 0 10px;text-transform:uppercase;line-height:1.05}
+.torneo-card p{color:var(--muted);margin:0 0 18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.chip{border:2px solid var(--line);border-radius:999px;padding:7px 14px;font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--navy)}
+.chip.chip-magenta{border-color:var(--magenta);color:var(--magenta)}
+.chip.chip-turquoise{border-color:var(--turquoise);color:var(--turquoise)}
+.chip.chip-lime{border-color:var(--lime);color:#5d8a24}
+.torneo-panel{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px;box-shadow:0 18px 44px rgba(31,42,122,.08)}
+.torneo-panel[hidden]{display:none}
+.torneo-panel h3{font-family:Oswald,sans-serif;color:var(--navy);font-size:24px;text-transform:uppercase;margin:34px 0 16px}
+.torneo-panel h3:first-child{margin-top:0}
+.winners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.winner{background:var(--bg-soft);border-radius:14px;padding:22px;border-top:5px solid var(--magenta)}
+.winner.w-turquoise{border-top-color:var(--turquoise)}
+.winner.w-lime{border-top-color:var(--lime)}
+.winner h4{margin:0 0 12px;font-size:13px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy)}
+.winner p{margin:6px 0;font-size:14px;color:var(--muted)}
+.winner strong{color:var(--ink)}
+.trophy{font-size:22px}
+details.school{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+details.school summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.school summary::-webkit-details-marker{display:none}
+details.school summary::after{content:"+";font-size:22px;color:var(--magenta);font-weight:800}
+details.school[open] summary::after{content:"–"}
+details.school p{font-size:13.5px;color:var(--muted);line-height:2;margin:12px 0 4px}
+.center{text-align:center}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.gallery-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;cursor:pointer;background:var(--bg-soft);transition:.2s}
+.gallery-grid img:hover{transform:scale(1.03)}
+.gallery-wrap[hidden]{display:none}
+.empty{color:var(--muted);text-align:center;padding:20px}
+/* ---------- CONTACTO ---------- */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:start}
+.info-card{background:var(--navy);color:#fff;border-radius:var(--radius);padding:34px}
+.info-card h3{margin:0 0 12px;font-size:20px}
+.info-card p{color:#cdd5ee;font-size:14.5px;margin:0 0 22px}
+/* ---------- FOOTER ---------- */
+footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
+.footerin{display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-brand img{width:56px;height:56px;object-fit:contain}
+.footer-brand strong{display:block;color:var(--navy);font-size:15px}
+.footer-brand span{font-size:12.5px;color:var(--muted)}
+.social{display:flex;gap:10px}
+.social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;text-decoration:none;font-weight:900;font-size:15px}
+.social a.s-fb{background:var(--magenta)} .social a.s-ig{background:var(--turquoise)} .social a.s-yt{background:var(--lime)}
+.copyright{text-align:center;color:#9aa3b8;font-size:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+/* ---------- LIGHTBOX ---------- */
+.lightbox{position:fixed;inset:0;background:rgba(10,14,30,.92);display:none;place-items:center;z-index:100;padding:20px}
+.lightbox.open{display:grid}
+.lightbox img{max-width:min(92vw,1100px);max-height:86vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb-btn{position:absolute;background:rgba(255,255,255,.14);border:0;color:#fff;font-size:26px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.lb-btn:hover{background:var(--magenta)}
+.lb-close{top:22px;right:22px}
+.lb-prev{left:18px;top:50%;transform:translateY(-50%)}
+.lb-next{right:18px;top:50%;transform:translateY(-50%)}
+.lb-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;letter-spacing:1px}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .links{display:none}
+  .burger{display:block}
+  .hero-grid,.torneo-card,.contact-grid{grid-template-columns:1fr}
+  .hero{padding:44px 0 52px}
+  .hero-photo{order:-1}
+  .grid,.winners-grid{grid-template-columns:1fr}
+  .impact-stats{grid-template-columns:1fr;gap:30px}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .torneo-card,.torneo-panel{padding:28px}
+  section{padding:56px 0}
+}
+</style>
 </head>
-
 <body>
 
-  <main class="wrap">
-
-    <img
-      class="logo"
-      src="BRILLANDO JUNTOS LOGO.PNG"
-      alt="Organización Brillando Juntos LLC"
-    >
-
-    <div class="eyebrow">
-      Organización Brillando Juntos LLC
-    </div>
-
-    <h1>
-      Estamos construyendo algo nuevo
-    </h1>
-
-    <div class="line"></div>
-
-    <p>
-      Nuestro sitio web se encuentra actualmente en reconstrucción.
-      Muy pronto conocerás una nueva experiencia de Organización
-      Brillando Juntos LLC.
-    </p>
-
-    <div class="tagline">
-      Baloncesto · Recreación · Comunidad
-    </div>
-
-    <a
-      class="button"
-      href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr"
-      target="_blank"
-      rel="noopener"
-    >
-      SÍGUENOS EN FACEBOOK
+<nav>
+  <div class="wrap navin">
+    <a class="brand" href="#inicio">
+      <img src="BRILLANDO JUNTOS LOGO.PNG" alt="Logo Organización Brillando Juntos LLC">
+      <span>BRILLANDO JUNTOS<small>PUERTO RICO</small></span>
     </a>
+    <div class="links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Lo que ofrecemos</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#elite-classic">Elite Classic</a>
+      <a href="#elite-classic">Galería</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn" href="#contacto" style="padding:10px 20px">CONTÁCTANOS</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Lo que ofrecemos</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#elite-classic">Elite Classic</a>
+    <a href="#elite-classic">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
 
-    <footer>
-      © 2026 Organización Brillando Juntos LLC
-    </footer>
+<header class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Baloncesto · Recreación · Comunidad</div>
+      <h1>Un espacio para crecer, compartir y pertenecer.</h1>
+      <p class="lead">Organización Brillando Juntos LLC impacta a jóvenes a través del baloncesto, la recreación y espacios de sana convivencia para varones y féminas.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#servicios">CONOCE LO QUE HACEMOS</a>
+        <a class="btn btn-outline" href="#contacto">CONTÁCTANOS</a>
+      </div>
+      <div class="hero-note">
+        <span class="dots"><i></i><i></i><i></i></span>
+        Organización sin fines de lucro · Puerto Rico
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="equipo.jpg" alt="Equipo de jóvenes de Brillando Juntos">
+    </div>
+  </div>
+</header>
 
-  </main>
+<section id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Brillando juntos dentro y fuera de la cancha</h2>
+      <p>Somos una organización enfocada en ofrecer a nuestra juventud oportunidades de desarrollo mediante el baloncesto y un ambiente recreativo donde también puedan compartir, escuchar música y disfrutar de un espacio de convivencia.</p>
+    </div>
+    <div class="grid">
+      <div class="card c-turquoise">
+        <div class="badge b-turquoise">🏀</div>
+        <h3>Desarrollo deportivo</h3>
+        <p>Baloncesto para jóvenes varones y féminas, con espacios para aprender, practicar y desarrollarse.</p>
+      </div>
+      <div class="card c-magenta">
+        <div class="badge b-magenta">🤝</div>
+        <h3>Comunidad</h3>
+        <p>Un ambiente para crear vínculos, compartir experiencias positivas y fortalecer el sentido de pertenencia.</p>
+      </div>
+      <div class="card c-lime">
+        <div class="badge b-lime">🎵</div>
+        <h3>Recreación</h3>
+        <p>El espacio también recibe jóvenes que no participan directamente de las clases, pero desean compartir y recrearse sanamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="impact">
+  <div class="wrap">
+    <h2>Impacto en la comunidad</h2>
+    <p class="lead">Actualmente impactamos alrededor de 50 jóvenes de forma directa a través de nuestras iniciativas de baloncesto y recreación. Nuestro propósito es seguir ampliando ese alcance.</p>
+    <div class="impact-stats">
+      <div><div class="stat-num n-lime">+50</div><div class="stat-label">Jóvenes impactados directamente</div></div>
+      <div><div class="stat-num n-turquoise">3</div><div class="stat-label">Programas deportivos y recreativos</div></div>
+      <div><div class="stat-num n-magenta">1</div><div class="stat-label">Torneo juvenil: Elite Classic</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="servicios">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Lo que ofrecemos</div>
+      <h2>Baloncesto con propósito</h2>
+      <p>Programas y experiencias dirigidas a crear oportunidades deportivas y recreativas para nuestra juventud.</p>
+    </div>
+    <div class="grid">
+      <div class="card c-turquoise">
+        <div class="badge b-turquoise">🏀</div>
+        <h3>Baloncesto masculino</h3>
+        <p>Espacios de práctica y desarrollo para jóvenes varones.</p>
+      </div>
+      <div class="card c-magenta">
+        <div class="badge b-magenta">⛹️‍♀️</div>
+        <h3>Baloncesto femenino</h3>
+        <p>Oportunidades de participación y desarrollo para jóvenes féminas.</p>
+      </div>
+      <div class="card c-lime">
+        <div class="badge b-lime">🎉</div>
+        <h3>Actividades y eventos</h3>
+        <p>Experiencias deportivas y recreativas que conectan atletas, familias, escuelas y comunidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="actividades">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mantente pendiente</div>
+      <h2>Próximas actividades</h2>
+    </div>
+    <div class="next-card">
+      <div>
+        <h3>PRÓXIMAMENTE</h3>
+        <p>Publicaremos aquí nuestras próximas prácticas especiales, actividades, eventos y oportunidades de participación.</p>
+      </div>
+      <a class="btn" href="#contacto">SOLICITAR INFORMACIÓN</a>
+    </div>
+  </div>
+</section>
+
+<section class="torneo" id="elite-classic">
+  <div class="wrap">
+    <div class="torneo-card">
+      <img src="elite-classic-logo.jpg" alt="Las Marías Elite Classic 2026">
+      <div>
+        <div class="eyebrow">Nuestros eventos · Edición 2026</div>
+        <h2>Las Marías Elite Classic</h2>
+        <p>El torneo queda como parte de la historia de Organización Brillando Juntos LLC. Aquí conservamos una mirada rápida a la edición 2026: escuelas participantes, protagonistas y fotografías.</p>
+        <div class="chips">
+          <span class="chip chip-magenta">JUNIOR</span>
+          <span class="chip chip-turquoise">SENIOR</span>
+          <span class="chip chip-lime">SENIOR FEMENINO</span>
+        </div>
+        <button class="btn btn-navy" id="btn-torneo">VER INFORMACIÓN DEL TORNEO</button>
+      </div>
+    </div>
+
+    <div class="torneo-panel" id="panel-torneo" hidden>
+      <h3><span class="trophy">🏆</span> Campeones y subcampeones 2026</h3>
+      <div class="winners-grid">
+        <div class="winner">
+          <h4>Junior</h4>
+          <p>🥇 <strong>Campeón:</strong><br>Escuela Domingo Aponte Collazo A</p>
+          <p>🥈 <strong>Subcampeón:</strong><br>Escuela Eva Patria y Custodio A</p>
+        </div>
+        <div class="winner w-turquoise">
+          <h4>Senior</h4>
+          <p>🥇 <strong>Campeón:</strong><br>Escuela Domingo Aponte Collazo A</p>
+          <p>🥈 <strong>Subcampeón:</strong><br>Escuela Eva Patria y Custodio A</p>
+        </div>
+        <div class="winner w-lime">
+          <h4>Senior Femenino</h4>
+          <p>🥇 <strong>Campeonas:</strong><br>Escuela Domingo Aponte Collazo</p>
+          <p>🥈 <strong>Subcampeonas:</strong><br>Escuela Loaiza Cordero</p>
+        </div>
+      </div>
+
+      <h3>Escuelas participantes</h3>
+      <details class="school">
+        <summary>Escuelas · Junior (12)</summary>
+        <p>Maricao · MML 2 · MML 3 · MML 4 · Eva Patria y Custodio A · Eva Patria y Custodio B · CDI Isabela · Catalina Morales · Eugenio M. De Hostos · Eladio Tirado · Luis Felipe Crespo · Lares A</p>
+      </details>
+      <details class="school">
+        <summary>Escuelas · Senior (14)</summary>
+        <p>Maricao · Eva Patria y Custodio A · Eva Patria y Custodio B · Catalina Morales B · Quebrada High · Eladio Tirado A · Eladio Tirado B · Ángel P. Millán A · Ángel P. Millán B · Luis Felipe Crespo · Patria Latorre · CDI Isabela · Lares A · Lares B</p>
+      </details>
+      <details class="school">
+        <summary>Escuelas · Senior Femenino (6)</summary>
+        <p>Eva Patria y Custodio · Loaiza Cordero · MML · ESCAED · Lares · Maricao</p>
+      </details>
+
+      <h3>Galería del torneo</h3>
+      <div class="center">
+        <button class="btn" id="btn-galeria">VER GALERÍA</button>
+      </div>
+      <div class="gallery-wrap" id="galeria-wrap" hidden>
+        <div class="gallery-grid" id="galeria-fotos"></div>
+        <div class="center" style="margin-top:22px">
+          <button class="btn btn-outline" id="btn-cerrar-galeria">CERRAR GALERÍA</button>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top:34px">
+        <button class="btn btn-outline" id="btn-cerrar-torneo">CERRAR INFORMACIÓN</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:24px">
+          <div class="eyebrow">Conecta con nosotros</div>
+          <h2>Contacto</h2>
+          <p>¿Quieres conocer más sobre nuestros programas, actividades o formas de participar? Comunícate con Organización Brillando Juntos LLC.</p>
+        </div>
+        <a class="btn" href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr" target="_blank" rel="noopener">SÍGUENOS EN FACEBOOK</a>
+      </div>
+      <div class="info-card">
+        <h3>Información de contacto</h3>
+        <p>Podemos añadir aquí teléfono, WhatsApp, correo electrónico, ubicación y redes adicionales cuando quieras.</p>
+        <a class="btn btn-outline" href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr" target="_blank" rel="noopener" style="border-color:#fff;color:#fff">FACEBOOK</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footerin">
+      <div class="footer-brand">
+        <img src="BRILLANDO JUNTOS LOGO.PNG" alt="Brillando Juntos">
+        <div>
+          <strong>ORGANIZACIÓN BRILLANDO JUNTOS LLC</strong>
+          <span>Baloncesto · Recreación · Comunidad</span>
+        </div>
+      </div>
+      <div class="social">
+        <a class="s-fb" href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a class="s-ig" href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+        <a class="s-yt" href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Organización Brillando Juntos LLC · Todos los derechos reservados</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-btn lb-close" id="lb-close" aria-label="Cerrar">✕</button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
+  <img id="lb-img" src="" alt="Fotografía del torneo">
+  <button class="lb-btn lb-next" id="lb-next" aria-label="Siguiente">›</button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+<script>
+// Menú móvil
+document.getElementById('burger').addEventListener('click', function(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+});
+
+// Panel del torneo (compacto / desplegable)
+var panelTorneo = document.getElementById('panel-torneo');
+var btnTorneo = document.getElementById('btn-torneo');
+btnTorneo.addEventListener('click', function(){
+  var abierto = panelTorneo.hidden;
+  panelTorneo.hidden = !abierto;
+  btnTorneo.textContent = abierto ? 'OCULTAR INFORMACIÓN DEL TORNEO' : 'VER INFORMACIÓN DEL TORNEO';
+  if (abierto) panelTorneo.scrollIntoView({behavior:'smooth', block:'start'});
+});
+document.getElementById('btn-cerrar-torneo').addEventListener('click', function(){
+  panelTorneo.hidden = true;
+  btnTorneo.textContent = 'VER INFORMACIÓN DEL TORNEO';
+  document.getElementById('elite-classic').scrollIntoView({behavior:'smooth'});
+});
+
+// Galería (carga las fotos de torneo-fotos del repositorio)
+var fotosGaleria = [];
+var galeriaCargada = false;
+var galeriaWrap = document.getElementById('galeria-wrap');
+var btnGaleria = document.getElementById('btn-galeria');
+
+async function cargarGaleria(){
+  var grid = document.getElementById('galeria-fotos');
+  var API = 'https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/torneo-fotos';
+  try {
+    var respuesta = await fetch(API);
+    if (!respuesta.ok) throw new Error('Error al obtener las fotos');
+    var archivos = await respuesta.json();
+    var fotos = archivos.filter(function(a){
+      return a.type === 'file' && /\.(jpe?g|png|webp)$/i.test(a.name);
+    });
+    fotos.sort(function(a,b){ return a.name.localeCompare(b.name, 'es', {numeric:true}); });
+    grid.innerHTML = '';
+    fotosGaleria = fotos.map(function(f){ return f.download_url; });
+    fotos.forEach(function(foto, index){
+      var img = document.createElement('img');
+      img.src = foto.download_url;
+      img.alt = 'Las Marías Elite Classic 2026';
+      img.loading = index < 8 ? 'eager' : 'lazy';
+      img.addEventListener('click', function(){ abrirLightbox(index); });
+      grid.appendChild(img);
+    });
+    if (!fotos.length) grid.innerHTML = '<p class="empty">No hay fotografías disponibles.</p>';
+  } catch(e) {
+    grid.innerHTML = '<p class="empty">No se pudieron cargar las fotografías.</p>';
+  }
+}
+
+btnGaleria.addEventListener('click', function(){
+  var mostrar = galeriaWrap.hidden;
+  galeriaWrap.hidden = !mostrar;
+  btnGaleria.textContent = mostrar ? 'OCULTAR GALERÍA' : 'VER GALERÍA';
+  if (mostrar && !galeriaCargada) { galeriaCargada = true; cargarGaleria(); }
+});
+document.getElementById('btn-cerrar-galeria').addEventListener('click', function(){
+  galeriaWrap.hidden = true;
+  btnGaleria.textContent = 'VER GALERÍA';
+});
+
+// Lightbox
+var lightbox = document.getElementById('lightbox');
+var lbImg = document.getElementById('lb-img');
+var lbCount = document.getElementById('lb-count');
+var lbIndex = 0;
+
+function abrirLightbox(i){
+  if (!fotosGaleria.length) return;
+  lbIndex = i;
+  actualizarLightbox();
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function actualizarLightbox(){
+  lbImg.src = fotosGaleria[lbIndex];
+  lbCount.textContent = (lbIndex + 1) + ' / ' + fotosGaleria.length;
+}
+function cerrarLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbMover(dir){
+  lbIndex = (lbIndex + dir + fotosGaleria.length) % fotosGaleria.length;
+  actualizarLightbox();
+}
+document.getElementById('lb-close').addEventListener('click', cerrarLightbox);
+document.getElementById('lb-prev').addEventListener('click', function(e){ e.stopPropagation(); lbMover(-1); });
+document.getElementById('lb-next').addEventListener('click', function(e){ e.stopPropagation(); lbMover(1); });
+lightbox.addEventListener('click', function(e){ if (e.target === lightbox) cerrarLightbox(); });
+document.addEventListener('keydown', function(e){
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') cerrarLightbox();
+  if (e.key === 'ArrowLeft') lbMover(-1);
+  if (e.key === 'ArrowRight') lbMover(1);
+});
+</script>
 </body>
 </html>
