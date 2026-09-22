@@ -217,6 +217,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .team-tab.active.t-lime{background:var(--lime)}
 .team-tab.active.t-navy{background:var(--navy)}
 .player-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.player-grid.centered{grid-template-columns:repeat(auto-fit,minmax(200px,260px));justify-content:center}
 .player-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s ease;box-shadow:0 10px 26px rgba(31,42,122,.07)}
 .player-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(31,42,122,.13)}
 .player-photo{aspect-ratio:1/1;background:var(--bg-soft);display:grid;place-items:center;overflow:hidden}
@@ -645,7 +646,7 @@ var PLANTILLAS = [
   {id:'senior-b', nombre:'EPC Senior B', color:'turquoise', jugadores:[]},
   {id:'senior-fem', nombre:'EPC Senior Femenino', color:'lime', jugadores:[]},
   {id:'coaches', nombre:'Coaches', color:'navy', jugadores:[
-    {nombre:'Coach ejemplo 1', numero:'', posicion:'Head Coach', foto:'', detalle:'Certificado por la Federación de Baloncesto de Puerto Rico y el DRD.'},
+    {nombre:'Angel Rivera', numero:'', posicion:'Seniors Coach', foto:'coach-angel-rivera.jpg', detalle:'Certificado por la Federación de Baloncesto de Puerto Rico y el DRD.'},
     {nombre:'Coach ejemplo 2', numero:'', posicion:'Head Coach', foto:'', detalle:'Certificado por la Federación de Baloncesto de Puerto Rico y el DRD.'}
   ]}
 ];
@@ -669,6 +670,7 @@ function dibujarTabs(){
 function dibujarPlantilla(){
   var grid = document.getElementById('player-grid');
   var eq = PLANTILLAS[equipoActivo];
+  grid.className = 'player-grid' + (eq.jugadores.length && eq.jugadores.length <= 3 ? ' centered' : '');
   grid.innerHTML = '';
   if (!eq.jugadores.length){
     grid.innerHTML = '<div class="empty-roster" style="grid-column:1/-1">' + SILUETA + '<p>Plantilla de ' + eq.nombre + ' por anunciar</p></div>';
