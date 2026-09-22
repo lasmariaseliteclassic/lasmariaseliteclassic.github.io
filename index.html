@@ -207,6 +207,42 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .cre-names{margin:0}
 .cre-names strong{color:var(--navy);font-size:17px}
 .cre-names span{display:block;color:var(--muted);font-size:13px;font-weight:700;margin-top:4px}
+/* ---------- EQUIPOS ---------- */
+.team-tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0 0 34px}
+.team-tab{border:2px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:10px 22px;font-size:12.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:.2s;font-family:inherit}
+.team-tab:hover{border-color:var(--magenta);color:var(--magenta)}
+.team-tab.active{color:#fff;border-color:transparent}
+.team-tab.active.t-magenta{background:var(--magenta)}
+.team-tab.active.t-turquoise{background:var(--turquoise)}
+.team-tab.active.t-lime{background:var(--lime)}
+.player-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.player-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s ease;box-shadow:0 10px 26px rgba(31,42,122,.07)}
+.player-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(31,42,122,.13)}
+.player-photo{aspect-ratio:1/1;background:var(--bg-soft);display:grid;place-items:center;overflow:hidden}
+.player-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.player-photo svg{width:44%;height:44%;color:#b9c1d6}
+.player-info{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.player-name{font-weight:800;color:var(--navy);font-size:14px;line-height:1.3}
+.player-num{background:var(--navy);color:#fff;font-weight:900;font-size:12px;border-radius:999px;padding:5px 12px;white-space:nowrap}
+.empty-roster{text-align:center;padding:52px 20px;color:var(--muted);border:2px dashed var(--line);border-radius:var(--radius);background:#fff}
+.empty-roster svg{width:52px;height:52px;color:#c3cadb;margin-bottom:12px}
+.empty-roster p{margin:0;font-weight:700;font-size:15px}
+/* ---------- PERFIL DE JUGADOR ---------- */
+.pm{position:fixed;inset:0;background:rgba(10,14,30,.92);display:none;place-items:center;z-index:110;padding:20px}
+.pm.open{display:grid}
+.pm-card{background:#fff;border-radius:22px;overflow:hidden;max-width:420px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;animation:pmIn .28s ease}
+@keyframes pmIn{from{transform:translateY(26px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.pm-photo{aspect-ratio:1/1;background:var(--navy-dark);display:grid;place-items:center;overflow:hidden}
+.pm-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pm-photo svg{width:40%;height:40%;color:#8f97b8}
+.pm-body{padding:26px 28px 30px}
+.pm-team{font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:8px}
+.pm-team.pm-magenta{color:var(--magenta)} .pm-team.pm-turquoise{color:var(--turquoise)} .pm-team.pm-lime{color:#5d8a24}
+.pm-name{font-family:Oswald,sans-serif;font-size:32px;color:var(--navy);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.pm-meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.pm-meta span{background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:12.5px;font-weight:800;color:var(--navy)}
+.pm-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(20,27,77,.55);color:#fff;font-size:20px;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.pm-close:hover{background:var(--magenta)}
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:960px){
   .links{display:none}
@@ -220,6 +256,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
   .deco-ring{left:-12px}
   .deco-magenta{right:-6px}
   .grid,.winners-grid{grid-template-columns:1fr}
+  .player-grid{grid-template-columns:repeat(2,1fr)}
   .impact-stats{grid-template-columns:1fr;gap:30px}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .torneo-card,.torneo-panel{padding:28px}
@@ -240,6 +277,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
       <a href="#servicios">Lo que ofrecemos</a>
       <a href="#actividades">Actividades</a>
       <a href="#elite-classic">Elite Classic</a>
+      <a href="#equipos">Equipos</a>
       <a class="btn" href="#contacto" style="padding:10px 20px">CONTÁCTANOS</a>
     </div>
     <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
@@ -249,6 +287,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
     <a href="#servicios">Lo que ofrecemos</a>
     <a href="#actividades">Actividades</a>
     <a href="#elite-classic">Elite Classic</a>
+    <a href="#equipos">Equipos</a>
   </div>
 </nav>
 
@@ -468,6 +507,30 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
   </div>
 </section>
 
+<section class="soft" id="equipos">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Nuestros equipos</div>
+      <h2>Equipos EPC</h2>
+      <p>Conoce a los equipos de Organización Brillando Juntos L.L.C. Toca la foto de un jugador o jugadora para ver su perfil.</p>
+    </div>
+    <div class="team-tabs" id="team-tabs"></div>
+    <div class="player-grid" id="player-grid"></div>
+  </div>
+</section>
+
+<div class="pm" id="player-modal">
+  <div class="pm-card">
+    <button class="pm-close" id="pm-close" aria-label="Cerrar perfil">✕</button>
+    <div class="pm-photo" id="pm-photo"></div>
+    <div class="pm-body">
+      <div class="pm-team" id="pm-team"></div>
+      <h3 class="pm-name" id="pm-name"></h3>
+      <div class="pm-meta" id="pm-meta"></div>
+    </div>
+  </div>
+</div>
+
 <section id="contacto">
   <div class="wrap">
     <div class="contact-grid">
@@ -569,6 +632,76 @@ document.getElementById('btn-cerrar-torneo').addEventListener('click', function(
   car.addEventListener('mouseleave', play);
   play();
 })();
+// Equipos y plantillas
+var PLANTILLAS = [
+  {id:'junior-a', nombre:'EPC Junior A', color:'magenta', jugadores:[
+    {nombre:'Jugador ejemplo', numero:'00', posicion:'Base', foto:''},
+    {nombre:'Jugadora ejemplo', numero:'00', posicion:'Escolta', foto:''}
+  ]},
+  {id:'junior-b', nombre:'EPC Junior B', color:'magenta', jugadores:[]},
+  {id:'senior-a', nombre:'EPC Senior A', color:'turquoise', jugadores:[]},
+  {id:'senior-b', nombre:'EPC Senior B', color:'turquoise', jugadores:[]},
+  {id:'senior-fem', nombre:'EPC Senior Femenino', color:'lime', jugadores:[]}
+];
+var equipoActivo = 0;
+var SILUETA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1-3.8 4-5.8 7.5-5.8s6.5 2 7.5 5.8"/></svg>';
+
+function fotoJugador(j){
+  return j.foto ? '<img src="' + j.foto + '" alt="' + j.nombre + '" loading="lazy">' : SILUETA;
+}
+function dibujarTabs(){
+  var tabs = document.getElementById('team-tabs');
+  tabs.innerHTML = '';
+  PLANTILLAS.forEach(function(eq, i){
+    var b = document.createElement('button');
+    b.className = 'team-tab t-' + eq.color + (i === equipoActivo ? ' active' : '');
+    b.textContent = eq.nombre;
+    b.addEventListener('click', function(){ equipoActivo = i; dibujarTabs(); dibujarPlantilla(); });
+    tabs.appendChild(b);
+  });
+}
+function dibujarPlantilla(){
+  var grid = document.getElementById('player-grid');
+  var eq = PLANTILLAS[equipoActivo];
+  grid.innerHTML = '';
+  if (!eq.jugadores.length){
+    grid.innerHTML = '<div class="empty-roster" style="grid-column:1/-1">' + SILUETA + '<p>Plantilla de ' + eq.nombre + ' por anunciar</p></div>';
+    return;
+  }
+  eq.jugadores.forEach(function(j){
+    var card = document.createElement('div');
+    card.className = 'player-card';
+    card.innerHTML = '<div class="player-photo">' + fotoJugador(j) + '</div>' +
+      '<div class="player-info"><div class="player-name">' + j.nombre + '</div>' +
+      (j.numero ? '<div class="player-num">#' + j.numero + '</div>' : '') + '</div>';
+    card.addEventListener('click', function(){ abrirPerfil(eq, j); });
+    grid.appendChild(card);
+  });
+}
+var pm = document.getElementById('player-modal');
+function abrirPerfil(eq, j){
+  document.getElementById('pm-photo').innerHTML = fotoJugador(j);
+  var t = document.getElementById('pm-team');
+  t.className = 'pm-team pm-' + eq.color;
+  t.textContent = eq.nombre;
+  document.getElementById('pm-name').textContent = j.nombre;
+  var meta = document.getElementById('pm-meta');
+  meta.innerHTML = '';
+  if (j.numero) meta.innerHTML += '<span>#' + j.numero + '</span>';
+  if (j.posicion) meta.innerHTML += '<span>' + j.posicion + '</span>';
+  pm.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function cerrarPerfil(){
+  pm.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('pm-close').addEventListener('click', cerrarPerfil);
+pm.addEventListener('click', function(e){ if (e.target === pm) cerrarPerfil(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && pm.classList.contains('open')) cerrarPerfil(); });
+dibujarTabs();
+dibujarPlantilla();
+
 // Galería (carga las fotos de torneo-fotos del repositorio)
 var fotosGaleria = [];
 var galeriaCargada = false;
