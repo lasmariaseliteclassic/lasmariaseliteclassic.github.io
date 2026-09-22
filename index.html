@@ -197,11 +197,21 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .car-dots{position:absolute;z-index:2;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
 .car-dot{width:9px;height:9px;border-radius:999px;border:none;background:rgba(255,255,255,.65);cursor:pointer;padding:0;transition:width .25s ease,background .25s ease}
 .car-dot.active{width:26px;background:var(--magenta)}
+/* ---------- CREADORES ---------- */
+.cre-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;align-items:center}
+.cre-photo{position:relative}
+.cre-photo img{width:100%;border-radius:22px;box-shadow:0 22px 50px rgba(31,42,122,.16);display:block}
+.cre-text .eyebrow{margin-bottom:10px}
+.cre-text h2{font-family:Oswald,sans-serif;font-size:clamp(28px,4vw,44px);line-height:1.08;margin:0 0 18px;color:var(--navy);text-transform:uppercase}
+.cre-quote{font-size:19px;line-height:1.65;color:#39406e;font-style:italic;margin:0 0 24px;padding-left:26px;border-left:5px solid var(--magenta)}
+.cre-names{margin:0}
+.cre-names strong{color:var(--navy);font-size:17px}
+.cre-names span{display:block;color:var(--muted);font-size:13px;font-weight:700;margin-top:4px}
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:960px){
   .links{display:none}
   .burger{display:block}
-  .hero-grid,.torneo-card,.contact-grid{grid-template-columns:1fr}
+  .hero-grid,.torneo-card,.contact-grid,.cre-grid{grid-template-columns:1fr}
   .hero{padding:44px 0 52px}
   .hero-photo{order:-1}
   .fc-trophy{left:6px}
@@ -316,6 +326,20 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
         <h3>Recreación</h3>
         <p>El espacio también recibe jóvenes que no participan directamente de las clases, pero desean compartir y recrearse sanamente.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap cre-grid">
+    <div class="cre-photo">
+      <img src="organizadores.jpg" alt="Antonio Feliciano (Vaquero) y Yolanda Pérez, creadores de Organización Brillando Juntos L.L.C." loading="lazy">
+    </div>
+    <div class="cre-text">
+      <div class="eyebrow">Nuestros creadores</div>
+      <h2>Brillando Juntos nació del corazón</h2>
+      <p class="cre-quote">“Esta organización existe porque creemos que cada joven de Las Marías merece una oportunidad: un espacio donde crecer, aprender y soñar a través del baloncesto. Aquí no solo formamos atletas, formamos personas de bien. Y mientras haya un joven con ganas de brillar, aquí estaremos.”</p>
+      <p class="cre-names"><strong>Antonio Feliciano (Vaquero)</strong> y <strong>Yolanda Pérez</strong><span>Fundadores de la organización</span></p>
     </div>
   </div>
 </section>
