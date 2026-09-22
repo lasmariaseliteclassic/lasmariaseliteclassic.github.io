@@ -3,445 +3,926 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071b17">
+<meta name="theme-color" content="#24282d">
+
 <title>Organización Brillando Juntos LLC</title>
+
+<meta
+  name="description"
+  content="Organización Brillando Juntos LLC. Baloncesto, recreación y espacios de desarrollo para nuestra juventud."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
 <style>
+
 :root{
-  --bg:#061713;
-  --bg2:#0b241e;
-  --card:#102d26;
-  --text:#f7f7f2;
-  --muted:#b8c8c1;
-  --gold:#d8b34b;
-  --line:rgba(255,255,255,.12);
-  --max:1180px
+  --white:#ffffff;
+  --offwhite:#f7f7f5;
+  --soft:#f0f1f2;
+  --graphite:#24282d;
+  --graphite2:#343a40;
+  --text:#202327;
+  --muted:#687078;
+  --border:#dfe2e5;
+  --shadow:0 16px 45px rgba(25,30,35,.08);
+  --max:1180px;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:var(--bg);
-  color:var(--text);
   font-family:Montserrat,Arial,sans-serif;
-  line-height:1.55
+  color:var(--text);
+  background:var(--offwhite);
+  line-height:1.6;
 }
 
-a{color:inherit}
-
-.wrap{
-  width:min(var(--max),calc(100% - 32px));
-  margin:auto
+img{
+  max-width:100%;
 }
 
-nav{
+a{
+  color:inherit;
+}
+
+.container{
+  width:min(var(--max),calc(100% - 34px));
+  margin:auto;
+}
+
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.navbar{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(6,23,19,.94);
+  z-index:100;
+  background:rgba(255,255,255,.94);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line)
+  border-bottom:1px solid var(--border);
 }
 
-.navin{
-  min-height:70px;
+.nav-inner{
+  min-height:72px;
   display:flex;
   align-items:center;
-  gap:22px
+  justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  margin-right:auto;
+  gap:12px;
   text-decoration:none;
-  font-weight:900
+  font-weight:900;
+  letter-spacing:.2px;
 }
 
 .brand img{
-  width:44px;
-  height:44px;
-  object-fit:contain
+  width:46px;
+  height:46px;
+  object-fit:contain;
 }
 
-.links{
+.brand span{
+  font-size:13px;
+}
+
+.nav-links{
   display:flex;
-  gap:18px;
-  flex-wrap:wrap
+  gap:22px;
+  align-items:center;
 }
 
-.links a{
+.nav-links a{
   text-decoration:none;
   font-size:12px;
   font-weight:800;
-  letter-spacing:.5px
+  color:var(--graphite2);
+  transition:.2s ease;
 }
 
-.links a:hover{color:var(--gold)}
+.nav-links a:hover{
+  color:#000;
+}
+
+.menu-btn{
+  display:none;
+  background:none;
+  border:0;
+  font-size:23px;
+  color:var(--graphite);
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  min-height:74vh;
-  display:grid;
-  place-items:center;
+  min-height:78vh;
+  display:flex;
+  align-items:center;
   position:relative;
   overflow:hidden;
-  background:
-    linear-gradient(90deg,rgba(3,17,14,.94),rgba(3,17,14,.64)),
-    url('Fondo-inicio.JPG') center/cover
-}
 
-.hero:after{
-  content:"";
-  position:absolute;
-  inset:auto 0 0;
-  height:170px;
-  background:linear-gradient(transparent,var(--bg))
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20,23,26,.92),
+      rgba(20,23,26,.66),
+      rgba(20,23,26,.28)
+    ),
+    url("Fondo-inicio.JPG") center/cover no-repeat;
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-  padding:80px 0;
-  max-width:850px
+  padding:90px 0 120px;
+  max-width:780px;
 }
 
 .hero-logo{
-  width:min(240px,55vw);
-  max-height:170px;
+  width:min(220px,55vw);
+  max-height:150px;
   object-fit:contain;
   object-position:left center;
-  margin-bottom:22px
+  margin-bottom:24px;
 }
 
-.eyebrow{
-  color:var(--gold);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:2.6px;
-  text-transform:uppercase
+.overline{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#d9dce0;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2.4px;
+}
+
+.overline:before{
+  content:"";
+  width:34px;
+  height:2px;
+  background:#fff;
 }
 
 .hero h1{
+  margin:14px 0 18px;
+  color:#fff;
   font-family:Oswald,sans-serif;
-  font-size:clamp(46px,8vw,92px);
-  line-height:.96;
-  margin:10px 0 18px;
-  text-transform:uppercase
+  font-size:clamp(48px,7vw,86px);
+  line-height:.98;
+  text-transform:uppercase;
+  letter-spacing:-1px;
 }
 
 .hero p{
-  font-size:clamp(16px,2vw,21px);
-  max-width:720px;
-  color:#e3ebe7
+  max-width:650px;
+  margin:0;
+  color:#e7e9ea;
+  font-size:clamp(16px,2vw,20px);
 }
 
-.actions{
+.hero-actions{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:28px
+  margin-top:28px;
 }
 
 .btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
   padding:13px 19px;
-  border-radius:8px;
-  background:var(--gold);
-  color:#102018;
+  border-radius:7px;
   text-decoration:none;
   font-size:12px;
   font-weight:900;
-  letter-spacing:.6px;
-  border:1px solid var(--gold);
-  cursor:pointer
-}
-
-.btn.secondary{
-  background:transparent;
-  color:white;
-  border-color:rgba(255,255,255,.35)
-}
-
-section{padding:76px 0}
-
-.section-head{
-  max-width:760px;
-  margin-bottom:30px
-}
-
-.section-head h2{
-  font-family:Oswald,sans-serif;
-  font-size:clamp(34px,5vw,56px);
-  line-height:1;
-  margin:8px 0 12px;
-  text-transform:uppercase
-}
-
-.section-head p{
-  color:var(--muted);
-  margin:0
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px
-}
-
-.card{
-  background:linear-gradient(
-    145deg,
-    rgba(20,58,49,.95),
-    rgba(11,36,30,.95)
-  );
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:26px;
-  box-shadow:0 18px 45px rgba(0,0,0,.16)
-}
-
-.card h3{
-  margin:5px 0 9px;
-  font-size:18px
-}
-
-.card p{
-  color:var(--muted);
-  margin:0
-}
-
-.icon{
-  font-size:28px;
-  margin-bottom:12px
-}
-
-.impact{
-  background:#f0e8cf;
-  color:#102018
-}
-
-.impact-grid{
-  display:grid;
-  grid-template-columns:1.2fr 2fr;
-  gap:34px;
-  align-items:center
-}
-
-.big-number{
-  font-family:Oswald,sans-serif;
-  font-size:clamp(90px,16vw,170px);
-  font-weight:700;
-  line-height:.8;
-  color:#8a6b13
-}
-
-.impact h2{
-  font-family:Oswald,sans-serif;
-  font-size:clamp(34px,5vw,55px);
-  margin:0 0 12px;
-  text-transform:uppercase
-}
-
-.impact p{color:#33463e}
-
-.event{
-  background:linear-gradient(135deg,#0c2c24,#163b31);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line)
-}
-
-.event-top{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:30px;
-  align-items:center
-}
-
-.event-logo{
-  width:min(330px,80%);
-  display:block;
-  margin:auto
-}
-
-.chips{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin:20px 0
-}
-
-.chip{
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:8px 12px;
-  font-size:11px;
-  font-weight:800
-}
-
-.teams{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin-top:28px
-}
-
-.teams details{
-  background:rgba(0,0,0,.15);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:15px
-}
-
-.teams summary{
+  letter-spacing:.4px;
+  border:1px solid var(--graphite);
+  background:var(--graphite);
+  color:#fff;
+  transition:.2s ease;
   cursor:pointer;
-  font-weight:900
 }
 
-.teams p{
-  font-size:12px;
+.btn:hover{
+  background:#111;
+  border-color:#111;
+}
+
+.btn.light{
+  background:#fff;
+  color:var(--graphite);
+  border-color:#fff;
+}
+
+.btn.outline-light{
+  background:transparent;
+  color:#fff;
+  border-color:rgba(255,255,255,.55);
+}
+
+.btn.outline{
+  background:transparent;
+  color:var(--graphite);
+  border-color:var(--graphite);
+}
+
+
+/* =========================
+   IMPACTO
+========================= */
+
+.impact-strip{
+  position:relative;
+  z-index:5;
+  margin-top:-48px;
+}
+
+.impact-box{
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:14px;
+  display:grid;
+  grid-template-columns:1.2fr repeat(3,1fr);
+  overflow:hidden;
+}
+
+.impact-intro,
+.impact-stat{
+  padding:28px;
+}
+
+.impact-intro{
+  background:var(--graphite);
+  color:#fff;
+}
+
+.impact-intro small{
+  display:block;
+  color:#bcc1c5;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+
+.impact-intro h3{
+  margin:7px 0 0;
+  font-family:Oswald,sans-serif;
+  font-size:28px;
+}
+
+.impact-stat{
+  border-left:1px solid var(--border);
+}
+
+.impact-stat strong{
+  display:block;
+  font-family:Oswald,sans-serif;
+  font-size:38px;
+  line-height:1;
+  color:var(--graphite);
+}
+
+.impact-stat span{
+  display:block;
+  margin-top:8px;
   color:var(--muted);
-  line-height:1.8
+  font-size:12px;
+  font-weight:700;
 }
 
-.winners{
-  margin-top:18px;
-  padding:18px;
-  border-left:4px solid var(--gold);
-  background:rgba(216,179,75,.08);
-  border-radius:8px
+
+/* =========================
+   SECCIONES
+========================= */
+
+section{
+  padding:84px 0;
 }
 
-.winners strong{color:var(--gold)}
+.section-label{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.section-title{
+  margin:7px 0 14px;
+  font-family:Oswald,sans-serif;
+  font-size:clamp(36px,5vw,56px);
+  line-height:1;
+  text-transform:uppercase;
+  color:var(--graphite);
+}
+
+.section-copy{
+  max-width:730px;
+  margin:0;
+  color:var(--muted);
+}
+
+.section-heading{
+  margin-bottom:36px;
+}
+
+
+/* =========================
+   NOSOTROS
+========================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:55px;
+  align-items:center;
+}
+
+.about-text p{
+  color:var(--muted);
+  font-size:15px;
+}
+
+.about-panel{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.about-panel i{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--graphite);
+  color:#fff;
+  font-size:20px;
+  margin-bottom:18px;
+}
+
+.about-panel h3{
+  margin:0 0 9px;
+  font-size:20px;
+}
+
+.about-panel p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.services{
+  background:#fff;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.service-card{
+  padding:28px 26px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
+  transition:.25s ease;
+}
+
+.service-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+
+.icon-box{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:var(--graphite);
+  color:#fff;
+  margin-bottom:20px;
+  font-size:19px;
+}
+
+.service-card h3{
+  margin:0 0 8px;
+  font-size:17px;
+}
+
+.service-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+
+/* =========================
+   ACTIVIDADES
+========================= */
+
+.activity-feature{
+  background:var(--graphite);
+  color:#fff;
+  border-radius:20px;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:25px;
+  align-items:center;
+}
+
+.activity-feature .section-label{
+  color:#bfc3c7;
+}
+
+.activity-feature h3{
+  margin:5px 0 10px;
+  font-family:Oswald,sans-serif;
+  font-size:38px;
+  text-transform:uppercase;
+}
+
+.activity-feature p{
+  margin:0;
+  color:#d6d8da;
+  max-width:720px;
+}
+
+
+/* =========================
+   ELITE CLASSIC
+========================= */
+
+.elite{
+  background:#eceeef;
+}
+
+.elite-header{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:30px;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.elite-logo{
+  width:min(280px,75%);
+  max-height:190px;
+  object-fit:contain;
+  justify-self:end;
+}
+
+.category-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:18px;
+  color:var(--graphite);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+}
+
+.category-label i{
+  font-size:14px;
+}
+
+
+/* =========================
+   ESCUELAS
+========================= */
+
+.school-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.school-category{
+  background:#fff;
+  border:1px solid #d6dade;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 28px rgba(25,30,35,.045);
+}
+
+.school-category-header{
+  padding:20px 22px;
+  background:var(--graphite);
+  color:#fff;
+}
+
+.school-category-header span{
+  display:block;
+  color:#bfc3c7;
+  font-size:10px;
+  letter-spacing:1.7px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.school-category-header h3{
+  margin:4px 0 0;
+  font-size:19px;
+}
+
+.school-list{
+  padding:8px 22px 16px;
+}
+
+.school-item{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px 0;
+  border-bottom:1px solid #eceeef;
+  font-size:12px;
+  font-weight:700;
+  color:#3f454b;
+}
+
+.school-item:last-child{
+  border-bottom:0;
+}
+
+.school-item i{
+  color:#9aa0a6;
+  font-size:9px;
+}
+
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery{
+  background:#fff;
+}
 
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:10px;
-  margin-top:24px
 }
 
 .gallery-grid img{
+  display:block;
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
   border-radius:10px;
   cursor:pointer;
-  background:#0d2b24
+  transition:.2s ease;
+  background:#eee;
 }
 
-.gallery-wrap[hidden]{display:none}
-
-.center{text-align:center}
-.empty{color:var(--muted)}
-
-.next-card{
-  display:flex;
-  justify-content:space-between;
-  gap:25px;
-  align-items:center
+.gallery-grid img:hover{
+  transform:scale(1.015);
+  opacity:.92;
 }
 
-.next-card h3{
-  font-family:Oswald,sans-serif;
-  font-size:34px;
-  margin:0
+.gallery-actions{
+  text-align:center;
+  margin-top:28px;
 }
 
-.contact{background:#0a211b}
+.hidden{
+  display:none !important;
+}
+
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contact{
+  background:var(--graphite);
+  color:#fff;
+}
 
 .contact-grid{
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:20px
+  grid-template-columns:1.3fr .7fr;
+  gap:50px;
+  align-items:center;
 }
 
-.contact a{word-break:break-word}
-
-.social{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:18px
+.contact .section-title{
+  color:#fff;
 }
+
+.contact .section-label{
+  color:#b9bdc1;
+}
+
+.contact p{
+  color:#d5d7d9;
+  max-width:650px;
+}
+
+.contact-card{
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;
+  padding:27px;
+}
+
+.contact-card i{
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.contact-card h3{
+  margin:0 0 6px;
+}
+
+.contact-card p{
+  margin:0 0 18px;
+  font-size:13px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  padding:32px 0;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-  font-size:12px
+  padding:30px 0;
+  background:#171a1d;
+  color:#abb0b5;
+  font-size:11px;
 }
 
-.footerin{
+.footer-inner{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:20px;
-  align-items:center
 }
 
-.footerin img{
-  width:58px;
-  height:58px;
-  object-fit:contain
+.footer-brand{
+  color:#fff;
+  font-weight:800;
 }
 
-@media(max-width:850px){
-  .links{display:none}
 
-  .grid,
-  .teams,
-  .impact-grid,
-  .event-top,
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:300;
+  background:rgba(0,0,0,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+}
+
+.lightbox.open{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:95vw;
+  max-height:88vh;
+  object-fit:contain;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:18px;
+  right:24px;
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:28px;
+  cursor:pointer;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    padding:18px 24px 22px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .impact-box{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .impact-intro{
+    grid-column:1/-1;
+  }
+
+  .impact-stat{
+    border-top:1px solid var(--border);
+  }
+
+  .about-grid,
+  .elite-header,
   .contact-grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
+  }
+
+  .elite-logo{
+    justify-self:start;
+  }
+
+  .service-grid,
+  .school-grid{
+    grid-template-columns:1fr;
+  }
+
+  .activity-feature{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  section{
+    padding:66px 0;
+  }
+
+  .hero{
+    min-height:72vh;
+  }
+
+  .hero-content{
+    padding:75px 0 105px;
+  }
+
+  .impact-box{
+    grid-template-columns:1fr;
+  }
+
+  .impact-intro{
+    grid-column:auto;
+  }
+
+  .impact-stat{
+    border-left:0;
   }
 
   .gallery-grid{
-    grid-template-columns:repeat(2,1fr)
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .hero{min-height:70vh}
-
-  .next-card,
-  .footerin{
-    align-items:flex-start;
-    flex-direction:column
+  .brand span{
+    display:none;
   }
 
-  .hero-logo{max-height:130px}
-  .impact-grid{gap:12px}
+  .activity-feature{
+    padding:28px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="wrap navin">
-    <a class="brand" href="#inicio">
-      <img src="BRILLANDO JUNTOS LOGO.PNG" alt="Logo Organización Brillando Juntos LLC">
-      <span>BRILLANDO JUNTOS</span>
+
+<!-- =========================
+     NAVEGACIÓN
+========================= -->
+
+<nav class="navbar">
+
+  <div class="container nav-inner">
+
+    <a href="#inicio" class="brand">
+
+      <img
+        src="BRILLANDO JUNTOS LOGO.PNG"
+        alt="Brillando Juntos"
+      >
+
+      <span>
+        ORGANIZACIÓN BRILLANDO JUNTOS LLC
+      </span>
+
     </a>
 
-    <div class="links">
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-label="Menú"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+
+    <div class="nav-links" id="navLinks">
+
       <a href="#nosotros">Nosotros</a>
-      <a href="#servicios">Lo que ofrecemos</a>
-      <a href="#actividades">Actividades</a>
-      <a href="#elite-classic">Elite Classic</a>
-      <a href="#galeria">Galería</a>
-      <a href="#contacto">Contacto</a>
+
+      <a href="#programas">
+        Programas
+      </a>
+
+      <a href="#actividades">
+        Actividades
+      </a>
+
+      <a href="#elite">
+        Elite Classic
+      </a>
+
+      <a href="#galeria">
+        Galería
+      </a>
+
+      <a href="#contacto">
+        Contacto
+      </a>
+
     </div>
+
   </div>
+
 </nav>
 
+
+
+<!-- =========================
+     HERO
+========================= -->
+
 <header class="hero" id="inicio">
-  <div class="wrap hero-content">
+
+  <div class="container hero-content">
 
     <img
       class="hero-logo"
@@ -449,454 +930,984 @@ footer{
       alt="Organización Brillando Juntos LLC"
     >
 
-    <div class="eyebrow">
+    <div class="overline">
       Baloncesto · Recreación · Comunidad
     </div>
 
     <h1>
-      Un espacio para crecer, compartir y pertenecer.
+      UN ESPACIO PARA CRECER,
+      COMPARTIR Y PERTENECER.
     </h1>
 
     <p>
-      Organización Brillando Juntos LLC impacta a jóvenes
-      a través del baloncesto, la recreación y espacios
-      de sana convivencia para varones y féminas.
+      Creamos oportunidades para nuestra juventud
+      a través del baloncesto, la recreación y
+      espacios de sana convivencia.
     </p>
 
-    <div class="actions">
-      <a class="btn" href="#servicios">
+    <div class="hero-actions">
+
+      <a
+        class="btn light"
+        href="#programas"
+      >
+        <i class="fa-solid fa-basketball"></i>
         CONOCE LO QUE HACEMOS
       </a>
 
-      <a class="btn secondary" href="#contacto">
+      <a
+        class="btn outline-light"
+        href="#contacto"
+      >
         CONTÁCTANOS
       </a>
+
     </div>
 
   </div>
+
 </header>
 
+
+
+<!-- =========================
+     IMPACTO
+========================= -->
+
+<div class="impact-strip">
+
+  <div class="container">
+
+    <div class="impact-box">
+
+      <div class="impact-intro">
+
+        <small>
+          Nuestro impacto
+        </small>
+
+        <h3>
+          Mucho más que baloncesto
+        </h3>
+
+      </div>
+
+
+      <div class="impact-stat">
+
+        <strong>≈50</strong>
+
+        <span>
+          jóvenes impactados directamente
+        </span>
+
+      </div>
+
+
+      <div class="impact-stat">
+
+        <strong>
+          <i class="fa-solid fa-venus-mars"></i>
+        </strong>
+
+        <span>
+          participación para varones y féminas
+        </span>
+
+      </div>
+
+
+      <div class="impact-stat">
+
+        <strong>
+          <i class="fa-solid fa-people-group"></i>
+        </strong>
+
+        <span>
+          deporte, recreación y comunidad
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     NOSOTROS
+========================= -->
+
 <section id="nosotros">
-  <div class="wrap">
 
-    <div class="section-head">
-      <div class="eyebrow">Quiénes somos</div>
+  <div class="container about-grid">
 
-      <h2>
-        Brillando juntos dentro y fuera de la cancha
+    <div class="about-text">
+
+      <div class="section-label">
+        Quiénes somos
+      </div>
+
+      <h2 class="section-title">
+        BRILLANDO JUNTOS
+        DENTRO Y FUERA
+        DE LA CANCHA
       </h2>
 
       <p>
-        Somos una organización enfocada en ofrecer a nuestra
-        juventud oportunidades de desarrollo mediante el
-        baloncesto y un ambiente recreativo donde también
-        puedan compartir, escuchar música y disfrutar de
-        un espacio de convivencia.
+        Organización Brillando Juntos LLC ofrece a
+        nuestra juventud espacios de desarrollo mediante
+        el baloncesto, la recreación y la convivencia.
       </p>
-    </div>
 
-    <div class="grid">
-
-      <div class="card">
-        <div class="icon">🏀</div>
-        <h3>Desarrollo deportivo</h3>
-        <p>
-          Baloncesto para jóvenes varones y féminas,
-          con espacios para aprender, practicar y desarrollarse.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🤝</div>
-        <h3>Comunidad</h3>
-        <p>
-          Un ambiente para crear vínculos, compartir
-          experiencias positivas y fortalecer el sentido
-          de pertenencia.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🎵</div>
-        <h3>Recreación</h3>
-        <p>
-          El espacio también recibe jóvenes que no participan
-          directamente de las clases, pero desean compartir
-          y recrearse sanamente.
-        </p>
-      </div>
+      <p>
+        Nuestro espacio también recibe jóvenes que no
+        necesariamente participan directamente de las
+        clases de baloncesto, pero encuentran aquí un
+        lugar para compartir, socializar y disfrutar
+        sanamente.
+      </p>
 
     </div>
+
+
+    <div class="about-panel">
+
+      <i class="fa-solid fa-people-roof"></i>
+
+      <h3>
+        Un espacio para nuestra juventud
+      </h3>
+
+      <p>
+        Desarrollo deportivo, convivencia y recreación
+        en un ambiente que promueve participación,
+        relaciones positivas y sentido de comunidad.
+      </p>
+
+    </div>
+
   </div>
+
 </section>
 
-<section class="impact">
-  <div class="wrap impact-grid">
 
-    <div class="big-number">+50</div>
 
-    <div>
-      <div class="eyebrow">Nuestro impacto</div>
+<!-- =========================
+     PROGRAMAS
+========================= -->
 
-      <h2>
-        Jóvenes impactados directamente
+<section
+  class="services"
+  id="programas"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        Lo que ofrecemos
+      </div>
+
+      <h2 class="section-title">
+        BALONCESTO CON PROPÓSITO
       </h2>
 
-      <p>
-        Actualmente impactamos alrededor de 50 jóvenes
-        de forma directa a través de nuestras iniciativas
-        de baloncesto y recreación. Nuestro propósito es
-        seguir ampliando ese alcance.
+      <p class="section-copy">
+        Iniciativas deportivas y recreativas dirigidas
+        a crear experiencias positivas para nuestros jóvenes.
       </p>
+
     </div>
 
-  </div>
-</section>
 
-<section id="servicios">
-  <div class="wrap">
+    <div class="service-grid">
 
-    <div class="section-head">
-      <div class="eyebrow">Lo que ofrecemos</div>
 
-      <h2>Baloncesto con propósito</h2>
+      <div class="service-card">
 
-      <p>
-        Programas y experiencias dirigidas a crear
-        oportunidades deportivas y recreativas para
-        nuestra juventud.
-      </p>
-    </div>
+        <div class="icon-box">
+          <i class="fa-solid fa-basketball"></i>
+        </div>
 
-    <div class="grid">
+        <h3>
+          Baloncesto masculino
+        </h3>
 
-      <div class="card">
-        <h3>Baloncesto masculino</h3>
         <p>
-          Espacios de práctica y desarrollo para jóvenes varones.
+          Espacios de práctica, aprendizaje y desarrollo
+          para jóvenes varones.
         </p>
+
       </div>
 
-      <div class="card">
-        <h3>Baloncesto femenino</h3>
+
+      <div class="service-card">
+
+        <div class="icon-box">
+          <i class="fa-solid fa-person-running"></i>
+        </div>
+
+        <h3>
+          Baloncesto femenino
+        </h3>
+
         <p>
-          Oportunidades de participación y desarrollo
+          Oportunidades deportivas y de desarrollo
           para jóvenes féminas.
         </p>
+
       </div>
 
-      <div class="card">
-        <h3>Actividades y eventos</h3>
+
+      <div class="service-card">
+
+        <div class="icon-box">
+          <i class="fa-solid fa-users"></i>
+        </div>
+
+        <h3>
+          Espacio recreativo
+        </h3>
+
         <p>
-          Experiencias deportivas y recreativas que conectan
-          atletas, familias, escuelas y comunidad.
+          Un ambiente donde nuestra juventud puede
+          compartir y disfrutar de sana convivencia.
         </p>
+
       </div>
+
 
     </div>
+
   </div>
+
 </section>
 
+
+
+<!-- =========================
+     ACTIVIDADES
+========================= -->
+
 <section id="actividades">
-  <div class="wrap">
 
-    <div class="section-head">
-      <div class="eyebrow">Mantente pendiente</div>
-      <h2>Próximas actividades</h2>
-    </div>
+  <div class="container">
 
-    <div class="card next-card">
+    <div class="activity-feature">
 
       <div>
-        <h3>PRÓXIMAMENTE</h3>
+
+        <div class="section-label">
+          Próximamente
+        </div>
+
+        <h3>
+          NUEVAS ACTIVIDADES
+        </h3>
+
         <p>
-          Publicaremos aquí nuestras próximas prácticas
-          especiales, actividades, eventos y oportunidades
-          de participación.
+          Aquí estaremos anunciando entrenamientos,
+          eventos, iniciativas y nuevas oportunidades
+          para nuestra juventud.
         </p>
+
       </div>
 
-      <a class="btn" href="#contacto">
-        SOLICITAR INFORMACIÓN
+
+      <a
+        class="btn light"
+        href="#contacto"
+      >
+        <i class="fa-regular fa-calendar-days"></i>
+        INFORMACIÓN
       </a>
 
     </div>
+
   </div>
+
 </section>
 
-<section class="event" id="elite-classic">
-  <div class="wrap">
 
-    <div class="event-top">
+
+<!-- =========================
+     ELITE CLASSIC
+========================= -->
+
+<section
+  class="elite"
+  id="elite"
+>
+
+  <div class="container">
+
+
+    <div class="elite-header">
 
       <div>
 
-        <div class="eyebrow">
-          Nuestros eventos · Edición 2026
+        <div class="section-label">
+          Proyecto realizado · 2026
         </div>
 
-        <h2 style="
-          font-family:Oswald,sans-serif;
-          font-size:clamp(40px,6vw,66px);
-          line-height:1;
-          margin:8px 0 14px;
-        ">
-          LAS MARÍAS ELITE CLASSIC
+        <h2 class="section-title">
+          LAS MARÍAS
+          ELITE CLASSIC
         </h2>
 
-        <p style="color:var(--muted)">
-          El torneo queda como parte de la historia de
-          Organización Brillando Juntos LLC. Aquí conservamos
-          una mirada rápida a la edición 2026: escuelas
-          participantes, protagonistas y fotografías.
+        <p class="section-copy">
+          Una de las iniciativas deportivas realizadas
+          por Organización Brillando Juntos LLC.
+          Conservamos aquí parte de la historia de la
+          edición 2026 y las escuelas participantes.
         </p>
 
-        <div class="chips">
-          <span class="chip">JUNIOR</span>
-          <span class="chip">SENIOR</span>
-          <span class="chip">SENIOR FEMENINO</span>
-        </div>
-
-        <div class="winners">
-          <strong>
-            Campeones y subcampeones 2026
-          </strong>
-          <br>
-          <span style="color:var(--muted)">
-            Esta área quedó preparada para añadir los
-            resultados oficiales de cada categoría.
-          </span>
-        </div>
-
       </div>
+
 
       <img
-        class="event-logo"
-        src="logo-las-marias-elite-classic.png"
-        alt="Las Marías Elite Classic 2026"
+        class="elite-logo"
+        src="LAS MARIAS LOGO.WEBP"
+        alt="Las Marías Elite Classic"
       >
 
     </div>
 
-    <div class="teams">
 
-      <details>
-        <summary>Escuelas · Junior</summary>
-        <p>
-          Maricao · MML 2 · MML 3 · MML 4 ·
-          Eva Patria y Custodio A · Eva Patria y Custodio B ·
-          CDI Isabela · Catalina Morales ·
-          Eugenio M. De Hostos · Eladio Tirado ·
-          Luis Felipe Crespo · Lares A
-        </p>
-      </details>
 
-      <details>
-        <summary>Escuelas · Senior</summary>
-        <p>
-          Maricao · Eva Patria y Custodio A ·
-          Eva Patria y Custodio B · Catalina Morales B ·
-          Quebrada High · Eladio Tirado A ·
-          Eladio Tirado B · Ángel P. Millán A ·
-          Ángel P. Millán B · Luis Felipe Crespo ·
-          Patria Latorre · CDI Isabela ·
-          Lares A · Lares B
-        </p>
-      </details>
+    <div class="category-label">
 
-      <details>
-        <summary>Escuelas · Senior Femenino</summary>
-        <p>
-          Eva Patria y Custodio · Loaiza Cordero ·
-          MML · ESCAED · Lares · Maricao
-        </p>
-      </details>
+      <i class="fa-solid fa-school"></i>
+
+      Escuelas participantes
+
+    </div>
+
+
+
+    <!-- ESCUELAS -->
+
+    <div class="school-grid">
+
+
+      <!-- JUNIOR -->
+
+      <div class="school-category">
+
+        <div class="school-category-header">
+
+          <span>
+            Categoría
+          </span>
+
+          <h3>
+            JUNIOR
+          </h3>
+
+        </div>
+
+
+        <div class="school-list">
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Maricao
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            MML 2
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            MML 3
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            MML 4
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eva Patria y Custodio A
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eva Patria y Custodio B
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            CDI Isabela
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Catalina Morales
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eugenio M. de Hostos
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eladio Tirado
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Luis Felipe Crespo
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Lares A
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SENIOR -->
+
+      <div class="school-category">
+
+        <div class="school-category-header">
+
+          <span>
+            Categoría
+          </span>
+
+          <h3>
+            SENIOR
+          </h3>
+
+        </div>
+
+
+        <div class="school-list">
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Maricao
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eva Patria y Custodio A
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eva Patria y Custodio B
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Catalina Morales B
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Quebrada High
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eladio Tirado A
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eladio Tirado B
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Ángel P. Millán A
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Ángel P. Millán B
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Luis Felipe Crespo
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Patria Latorre
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            CDI Isabela
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Lares A
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Lares B
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FEMENINO -->
+
+      <div class="school-category">
+
+        <div class="school-category-header">
+
+          <span>
+            Categoría
+          </span>
+
+          <h3>
+            SENIOR FEMENINO
+          </h3>
+
+        </div>
+
+
+        <div class="school-list">
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Eva Patria y Custodio
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Loaiza Cordero
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            MML
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            ESCAED
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Lares
+          </div>
+
+          <div class="school-item">
+            <i class="fa-solid fa-circle"></i>
+            Maricao
+          </div>
+
+        </div>
+
+      </div>
+
 
     </div>
 
   </div>
+
 </section>
 
-<section id="galeria">
-  <div class="wrap">
 
-    <div class="section-head">
-      <div class="eyebrow">Momentos</div>
-      <h2>Galería</h2>
 
-      <p>
-        Fotografías de nuestras actividades y de
-        Las Marías Elite Classic 2026.
+<!-- =========================
+     GALERÍA
+========================= -->
+
+<section
+  class="gallery"
+  id="galeria"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        Nuestros momentos
+      </div>
+
+      <h2 class="section-title">
+        GALERÍA
+      </h2>
+
+      <p class="section-copy">
+        Fotografías de nuestras actividades,
+        experiencias deportivas y eventos.
       </p>
+
     </div>
 
-    <div class="center">
-      <button
-        id="btn-ver-galeria"
-        class="btn"
-        onclick="
-          document.getElementById('fotos-galeria').hidden=false;
-          this.hidden=true
-        "
-      >
-        VER GALERÍA
-      </button>
-    </div>
 
     <div
-      id="fotos-galeria"
-      class="gallery-wrap"
-      hidden
-    >
+      id="galeria-fotos"
+      class="gallery-grid"
+    ></div>
 
-      <div
-        id="galeria-fotos"
-        class="gallery-grid">
-      </div>
 
-      <div class="center" style="margin-top:22px">
+    <div class="gallery-actions">
 
-        <button
-          class="btn secondary"
-          onclick="
-            document.getElementById('fotos-galeria').hidden=true;
-            document.getElementById('btn-ver-galeria').hidden=false
-          "
-        >
-          CERRAR GALERÍA
-        </button>
-
-      </div>
+      <button
+        id="mostrarMas"
+        class="btn outline"
+        type="button"
+      >
+        <i class="fa-regular fa-images"></i>
+        VER MÁS FOTOS
+      </button>
 
     </div>
 
   </div>
+
 </section>
 
-<section class="contact" id="contacto">
-  <div class="wrap contact-grid">
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section
+  class="contact"
+  id="contacto"
+>
+
+  <div class="container contact-grid">
 
     <div>
 
-      <div class="section-head">
-        <div class="eyebrow">Conecta con nosotros</div>
-
-        <h2>Contacto</h2>
-
-        <p>
-          ¿Quieres conocer más sobre nuestros programas,
-          actividades o formas de participar?
-          Comunícate con Organización Brillando Juntos LLC.
-        </p>
+      <div class="section-label">
+        Conecta con nosotros
       </div>
 
-      <div class="social">
-        <a
-          class="btn"
-          href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr"
-          target="_blank"
-          rel="noopener"
-        >
-          FACEBOOK
-        </a>
-      </div>
-
-    </div>
-
-    <div class="card">
-      <h3>Información de contacto</h3>
+      <h2 class="section-title">
+        CONTACTO
+      </h2>
 
       <p>
-        Podemos añadir aquí teléfono, WhatsApp, correo
-        electrónico, ubicación y redes adicionales
-        cuando quieras.
+        Para información sobre nuestras actividades,
+        programas y oportunidades de participación,
+        puedes comunicarte con Organización
+        Brillando Juntos LLC.
       </p>
+
+    </div>
+
+
+    <div class="contact-card">
+
+      <i class="fa-brands fa-facebook-f"></i>
+
+      <h3>
+        Síguenos
+      </h3>
+
+      <p>
+        Mantente pendiente a nuestras actividades
+        y próximos anuncios.
+      </p>
+
+      <a
+        class="btn light"
+        href="https://www.facebook.com/share/1JsZM6WTZe/?mibextid=wwXIfr"
+        target="_blank"
+        rel="noopener"
+      >
+        FACEBOOK
+      </a>
+
     </div>
 
   </div>
+
 </section>
 
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-  <div class="wrap footerin">
+
+  <div class="container footer-inner">
 
     <div>
-      <strong style="color:white">
+
+      <div class="footer-brand">
         ORGANIZACIÓN BRILLANDO JUNTOS LLC
-      </strong>
-      <br>
+      </div>
+
       Baloncesto · Recreación · Comunidad
-      <br>
-      © 2026 · Todos los derechos reservados
+
     </div>
 
-    <img
-      src="BRILLANDO JUNTOS LOGO.PNG"
-      alt="Brillando Juntos"
-    >
+
+    <div>
+      © 2026
+    </div>
 
   </div>
+
 </footer>
 
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+>
+
+  <button
+    class="lightbox-close"
+    id="lightboxClose"
+    aria-label="Cerrar"
+  >
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <img
+    id="lightboxImage"
+    alt="Fotografía"
+  >
+
+</div>
+
+
+
 <script>
-document.addEventListener("DOMContentLoaded", async function(){
 
-  const galeria = document.getElementById("galeria-fotos");
+/* MENÚ MÓVIL */
 
-  if(!galeria) return;
+const menuBtn =
+  document.getElementById("menuBtn");
 
-  const API =
-    "https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
+const navLinks =
+  document.getElementById("navLinks");
+
+menuBtn.addEventListener(
+  "click",
+  function(){
+
+    navLinks.classList.toggle("open");
+
+  }
+);
+
+document
+  .querySelectorAll(".nav-links a")
+  .forEach(link=>{
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        navLinks.classList.remove("open");
+
+      }
+    );
+
+  });
+
+
+/* GALERÍA AUTOMÁTICA */
+
+const API =
+"https://api.github.com/repos/lasmariaseliteclassic/lasmariaseliteclassic.github.io/contents/galeria";
+
+const gallery =
+  document.getElementById("galeria-fotos");
+
+const moreButton =
+  document.getElementById("mostrarMas");
+
+const lightbox =
+  document.getElementById("lightbox");
+
+const lightboxImage =
+  document.getElementById("lightboxImage");
+
+const lightboxClose =
+  document.getElementById("lightboxClose");
+
+let galleryImages = [];
+
+let visibleCount = 8;
+
+
+async function loadGallery(){
 
   try{
 
-    const respuesta = await fetch(API);
+    const response =
+      await fetch(API);
 
-    if(!respuesta.ok){
-      throw new Error("Error al obtener las fotos");
+    if(!response.ok){
+      throw new Error("No se pudo cargar la galería");
     }
 
-    const archivos = await respuesta.json();
+    const files =
+      await response.json();
 
-    const fotos = archivos.filter(
-      a =>
-        a.type === "file" &&
-        /\.(jpg|jpeg|png|webp)$/i.test(a.name)
-    );
 
-    galeria.innerHTML = "";
-
-    fotos.forEach((foto,index)=>{
-
-      const imagen = document.createElement("img");
-
-      imagen.src = foto.download_url;
-      imagen.alt = "Organización Brillando Juntos LLC";
-      imagen.loading = index < 8 ? "eager" : "lazy";
-
-      imagen.addEventListener(
-        "click",
-        () => window.open(foto.download_url,"_blank")
+    galleryImages =
+      files.filter(
+        file =>
+          file.type === "file" &&
+          /\.(jpg|jpeg|png|webp)$/i.test(file.name)
       );
 
-      galeria.appendChild(imagen);
 
-    });
+    renderGallery();
 
-    if(!fotos.length){
-      galeria.innerHTML =
-        '<p class="empty">No hay fotografías disponibles.</p>';
-    }
+  }
+  catch(error){
 
-  }catch(e){
+    console.error(error);
 
-    console.error(e);
+    gallery.innerHTML =
+      "<p>No se pudieron cargar las fotografías.</p>";
 
-    galeria.innerHTML =
-      '<p class="empty">No se pudieron cargar las fotografías.</p>';
+    moreButton.style.display =
+      "none";
 
   }
 
-});
+}
+
+
+
+function renderGallery(){
+
+  gallery.innerHTML = "";
+
+
+  galleryImages
+    .slice(0,visibleCount)
+    .forEach(file=>{
+
+      const image =
+        document.createElement("img");
+
+      image.src =
+        file.download_url;
+
+      image.loading =
+        "lazy";
+
+      image.alt =
+        "Actividad de Organización Brillando Juntos LLC";
+
+
+      image.addEventListener(
+        "click",
+        function(){
+
+          lightboxImage.src =
+            file.download_url;
+
+          lightbox.classList.add("open");
+
+        }
+      );
+
+
+      gallery.appendChild(image);
+
+    });
+
+
+  if(
+    visibleCount >= galleryImages.length
+  ){
+
+    moreButton.style.display =
+      "none";
+
+  }
+  else{
+
+    moreButton.style.display =
+      "inline-flex";
+
+  }
+
+}
+
+
+
+moreButton.addEventListener(
+  "click",
+  function(){
+
+    visibleCount += 8;
+
+    renderGallery();
+
+  }
+);
+
+
+
+lightboxClose.addEventListener(
+  "click",
+  function(){
+
+    lightbox.classList.remove("open");
+
+  }
+);
+
+
+
+lightbox.addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === lightbox){
+
+      lightbox.classList.remove("open");
+
+    }
+
+  }
+);
+
+
+loadGallery();
+
 </script>
 
 </body>
