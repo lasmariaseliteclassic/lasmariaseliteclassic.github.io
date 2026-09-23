@@ -517,8 +517,13 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
       <h2>Equipos EPC</h2>
       <p>Conoce a los equipos y a los coaches de Organización Brillando Juntos L.L.C. Toca la foto de un jugador, jugadora o coach para ver su perfil.</p>
     </div>
-    <div class="team-tabs" id="team-tabs"></div>
-    <div class="player-grid" id="player-grid"></div>
+    <div class="center" style="margin-bottom:6px">
+      <button class="btn btn-outline" id="btn-equipos">VER EQUIPOS</button>
+    </div>
+    <div id="panel-equipos" hidden>
+      <div class="team-tabs" id="team-tabs"></div>
+      <div class="player-grid" id="player-grid"></div>
+    </div>
   </div>
 </section>
 
@@ -718,6 +723,16 @@ pm.addEventListener('click', function(e){ if (e.target === pm) cerrarPerfil(); }
 document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && pm.classList.contains('open')) cerrarPerfil(); });
 dibujarTabs();
 dibujarPlantilla();
+
+// Panel de equipos (compacto / desplegable)
+var panelEquipos = document.getElementById('panel-equipos');
+var btnEquipos = document.getElementById('btn-equipos');
+btnEquipos.addEventListener('click', function(){
+  var abierto = panelEquipos.hidden;
+  panelEquipos.hidden = !abierto;
+  btnEquipos.textContent = abierto ? 'OCULTAR EQUIPOS' : 'VER EQUIPOS';
+  if (abierto) panelEquipos.scrollIntoView({behavior:'smooth', block:'start'});
+});
 
 // Galería (carga las fotos de torneo-fotos del repositorio)
 var fotosGaleria = [];
