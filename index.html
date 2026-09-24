@@ -109,6 +109,15 @@ nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.97);backdrop-f
 .next-card{display:flex;justify-content:space-between;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-left:8px solid var(--magenta);border-radius:var(--radius);padding:34px 36px;box-shadow:0 14px 34px rgba(31,42,122,.07);flex-wrap:wrap}
 .next-card h3{font-family:Oswald,sans-serif;font-size:32px;margin:0 0 8px;color:var(--navy);letter-spacing:1px}
 .next-card p{color:var(--muted);margin:0;max-width:560px}
+.next-card.game-card{border-left-color:var(--turquoise);margin-bottom:22px;justify-content:flex-start}
+.game-date{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--navy);color:#fff;border-radius:14px;min-width:94px;padding:16px 12px;flex-shrink:0}
+.gd-day{font-family:Oswald,sans-serif;font-size:40px;font-weight:700;line-height:1}
+.gd-month{font-size:12px;font-weight:800;letter-spacing:2.5px;color:var(--lime);margin-top:4px}
+.game-info{flex:1;min-width:240px}
+.game-info .eyebrow{margin-bottom:6px}
+.game-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
+.game-meta span{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--navy)}
+.game-meta svg{width:18px;height:18px;color:var(--magenta);flex-shrink:0}
 /* ---------- TORNEO ---------- */
 .torneo{background:var(--bg-soft)}
 .torneo-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px;box-shadow:0 18px 44px rgba(31,42,122,.08);display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
@@ -434,10 +443,24 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
       <div class="eyebrow">Mantente pendiente</div>
       <h2>Próximas actividades</h2>
     </div>
+    <div class="next-card game-card">
+      <div class="game-date" aria-hidden="true">
+        <span class="gd-day">02</span>
+        <span class="gd-month">OCT 2026</span>
+      </div>
+      <div class="game-info">
+        <div class="eyebrow">Juego de fogueo · Equipos A y B</div>
+        <h3>vs Escuela Patria Latorre</h3>
+        <div class="game-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.8h17"/><path d="M8 3v3.6M16 3v3.6"/></svg> Viernes, 2 de octubre de 2026 · 6:00 PM</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg> Coliseo Municipal de Las Marías</span>
+        </div>
+      </div>
+    </div>
     <div class="next-card">
       <div>
-        <h3>PRÓXIMAMENTE</h3>
-        <p>Publicaremos aquí nuestras próximas prácticas especiales, actividades, eventos y oportunidades de participación.</p>
+        <h3>MÁS EN CAMINO</h3>
+        <p>Seguiremos publicando aquí nuestras próximas prácticas especiales, actividades, eventos y oportunidades de participación.</p>
       </div>
       <a class="btn" href="#contacto">SOLICITAR INFORMACIÓN</a>
     </div>
