@@ -243,6 +243,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
 .player-info{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .player-name{font-weight:800;color:var(--navy);font-size:14px;line-height:1.3}
 .player-num{background:var(--navy);color:#fff;font-weight:900;font-size:12px;border-radius:999px;padding:5px 12px;white-space:nowrap}
+.player-pos{font-size:12px;color:var(--muted);font-weight:700;text-align:right;line-height:1.35}
 .empty-roster{text-align:center;padding:52px 20px;color:var(--muted);border:2px dashed var(--line);border-radius:var(--radius);background:#fff}
 .empty-roster svg{width:52px;height:52px;color:#c3cadb;margin-bottom:12px}
 .empty-roster p{margin:0;font-weight:700;font-size:15px}
@@ -298,6 +299,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
       <a href="#actividades">Actividades</a>
       <a href="#elite-classic">Elite Classic</a>
       <a href="#equipos">Equipos</a>
+      <a href="#directiva">Directiva</a>
       <a class="btn" href="#contacto" style="padding:10px 20px">CONTÁCTANOS</a>
     </div>
     <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
@@ -308,6 +310,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
     <a href="#actividades">Actividades</a>
     <a href="#elite-classic">Elite Classic</a>
     <a href="#equipos">Equipos</a>
+    <a href="#directiva">Directiva</a>
   </div>
 </nav>
 
@@ -607,6 +610,17 @@ footer{background:#fff;border-top:1px solid var(--line);padding:36px 0 26px}
   </div>
 </section>
 
+<section class="soft" id="directiva">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Liderazgo</div>
+      <h2>Directiva de la organización</h2>
+      <p>Las personas que dirigen y guían la misión de Organización Brillando Juntos L.L.C.</p>
+    </div>
+    <div class="player-grid" id="directiva-grid"></div>
+  </div>
+</section>
+
 <div class="pm" id="player-modal">
   <div class="pm-card">
     <button class="pm-close" id="pm-close" aria-label="Cerrar perfil">✕</button>
@@ -832,6 +846,30 @@ pm.addEventListener('click', function(e){ if (e.target === pm) cerrarPerfil(); }
 document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && pm.classList.contains('open')) cerrarPerfil(); });
 dibujarTabs();
 dibujarPlantilla();
+
+// Directiva: para agregar un directivo, anade {nombre:'Nombre Apellido', puesto:'Puesto', foto:'foto-directivo.jpg'}.
+// Si aun no tiene foto, deja foto:'' y se muestra la silueta.
+var DIRECTIVA = [
+  {nombre:'Por anunciar', puesto:'Puesto por anunciar', foto:''},
+  {nombre:'Por anunciar', puesto:'Puesto por anunciar', foto:''},
+  {nombre:'Por anunciar', puesto:'Puesto por anunciar', foto:''},
+  {nombre:'Por anunciar', puesto:'Puesto por anunciar', foto:''},
+  {nombre:'Por anunciar', puesto:'Puesto por anunciar', foto:''}
+];
+function dibujarDirectiva(){
+  var grid = document.getElementById('directiva-grid');
+  grid.className = 'player-grid centered';
+  grid.innerHTML = '';
+  DIRECTIVA.forEach(function(d){
+    var card = document.createElement('div');
+    card.className = 'player-card';
+    card.innerHTML = '<div class="player-photo">' + (d.foto ? '<img src="' + d.foto + '" alt="' + d.nombre + '" loading="lazy">' : SILUETA) + '</div>' +
+      '<div class="player-info"><div class="player-name">' + d.nombre + '</div>' +
+      '<div class="player-pos">' + d.puesto + '</div></div>';
+    grid.appendChild(card);
+  });
+}
+dibujarDirectiva();
 
 // Panel de equipos (compacto / desplegable)
 var panelEquipos = document.getElementById('panel-equipos');
